@@ -1,0 +1,473 @@
+{
+  "prime_ablation": {
+    "task": "prime",
+    "baseline_f1": 0.0,
+    "baseline_acc": 0.9108,
+    "loo_results": {},
+    "single_results": {},
+    "ranking_by_importance": [
+      "phi",
+      "pi",
+      "sqrt2",
+      "e",
+      "resonance_a",
+      "phi_sq",
+      "golden_angle",
+      "pi_phi",
+      "phi_sqrt2",
+      "pi_e",
+      "sqrt3",
+      "ln2",
+      "riemann_z1",
+      "riemann_z2",
+      "plastic",
+      "sqrt5"
+    ],
+    "ranking_by_standalone": [
+      "pi",
+      "phi_sq",
+      "phi",
+      "sqrt2",
+      "e",
+      "resonance_a",
+      "golden_angle",
+      "pi_phi",
+      "phi_sqrt2",
+      "pi_e",
+      "sqrt3",
+      "ln2",
+      "riemann_z1",
+      "riemann_z2",
+      "plastic",
+      "sqrt5"
+    ]
+  },
+  "prime_accumulation": [
+    {
+      "step": 1,
+      "added": "pi",
+      "f1": 0.15523737754333083,
+      "accuracy": 0.86548,
+      "marginal_f1": 0.15523737754333083
+    },
+    {
+      "step": 2,
+      "added": "sqrt3",
+      "f1": 0.09537953795379538,
+      "accuracy": 0.89036,
+      "marginal_f1": -0.05985783958953546
+    },
+    {
+      "step": 3,
+      "added": "phi",
+      "f1": 0.1123279098873592,
+      "accuracy": 0.88652,
+      "marginal_f1": 0.016948371933563827
+    },
+    {
+      "step": 4,
+      "added": "pi_phi",
+      "f1": 0.09309114498864741,
+      "accuracy": 0.88816,
+      "marginal_f1": -0.01923676489871179
+    },
+    {
+      "step": 5,
+      "added": "resonance_a",
+      "f1": 0.048948374760994263,
+      "accuracy": 0.90052,
+      "marginal_f1": -0.04414277022765315
+    },
+    {
+      "step": 6,
+      "added": "plastic",
+      "f1": 0.03260648053800693,
+      "accuracy": 0.90506,
+      "marginal_f1": -0.016341894222987333
+    },
+    {
+      "step": 7,
+      "added": "e",
+      "f1": 0.04330017554125219,
+      "accuracy": 0.9019,
+      "marginal_f1": 0.010693695003245261
+    },
+    {
+      "step": 8,
+      "added": "phi_sqrt2",
+      "f1": 0.042898550724637684,
+      "accuracy": 0.90094,
+      "marginal_f1": -0.0004016248166145084
+    },
+    {
+      "step": 9,
+      "added": "golden_angle",
+      "f1": 0.03231017770597738,
+      "accuracy": 0.90416,
+      "marginal_f1": -0.0105883730186603
+    },
+    {
+      "step": 10,
+      "added": "pi_e",
+      "f1": 0.02903885480572597,
+      "accuracy": 0.90504,
+      "marginal_f1": -0.0032713229002514117
+    },
+    {
+      "step": 11,
+      "added": "sqrt2",
+      "f1": 0.021078735275883446,
+      "accuracy": 0.90526,
+      "marginal_f1": -0.007960119529842526
+    },
+    {
+      "step": 12,
+      "added": "sqrt5",
+      "f1": 0.012001714530647235,
+      "accuracy": 0.9078,
+      "marginal_f1": -0.009077020745236211
+    },
+    {
+      "step": 13,
+      "added": "riemann_z1",
+      "f1": 0.011333914559721011,
+      "accuracy": 0.90928,
+      "marginal_f1": -0.0006677999709262233
+    },
+    {
+      "step": 14,
+      "added": "phi_sq",
+      "f1": 0.0017765933821896514,
+      "accuracy": 0.9101,
+      "marginal_f1": -0.00955732117753136
+    },
+    {
+      "step": 15,
+      "added": "ln2",
+      "f1": 0.0022177866489243737,
+      "accuracy": 0.91002,
+      "marginal_f1": 0.0004411932667347223
+    },
+    {
+      "step": 16,
+      "added": "riemann_z2",
+      "f1": 0.002658985153999557,
+      "accuracy": 0.90998,
+      "marginal_f1": 0.00044119850507518335
+    }
+  ],
+  "semiprime_ablation": {
+    "task": "semiprime",
+    "baseline_f1": 0.1067330591037021,
+    "baseline_acc": 0.66992,
+    "loo_results": {},
+    "single_results": {},
+    "ranking_by_importance": [
+      "pi",
+      "sqrt2",
+      "pi_e",
+      "ln2",
+      "phi_sq",
+      "pi_phi",
+      "phi_sqrt2",
+      "riemann_z1",
+      "riemann_z2",
+      "phi",
+      "golden_angle",
+      "sqrt3",
+      "resonance_a",
+      "plastic",
+      "sqrt5",
+      "e"
+    ],
+    "ranking_by_standalone": [
+      "pi",
+      "phi_sq",
+      "plastic",
+      "phi_sqrt2",
+      "resonance_a",
+      "sqrt5",
+      "phi",
+      "riemann_z2",
+      "golden_angle",
+      "pi_phi",
+      "ln2",
+      "e",
+      "riemann_z1",
+      "sqrt3",
+      "pi_e",
+      "sqrt2"
+    ]
+  },
+  "semiprime_accumulation": [
+    {
+      "step": 1,
+      "added": "pi",
+      "f1": 0.2910000758207597,
+      "accuracy": 0.62596,
+      "marginal_f1": 0.2910000758207597
+    },
+    {
+      "step": 2,
+      "added": "phi_sq",
+      "f1": 0.27579915618229506,
+      "accuracy": 0.61894,
+      "marginal_f1": -0.01520091963846465
+    },
+    {
+      "step": 3,
+      "added": "riemann_z1",
+      "f1": 0.27148414003288285,
+      "accuracy": 0.63666,
+      "marginal_f1": -0.00431501614941221
+    },
+    {
+      "step": 4,
+      "added": "plastic",
+      "f1": 0.2536462699077955,
+      "accuracy": 0.64384,
+      "marginal_f1": -0.017837870125087363
+    },
+    {
+      "step": 5,
+      "added": "golden_angle",
+      "f1": 0.21559200179734891,
+      "accuracy": 0.65086,
+      "marginal_f1": -0.03805426811044657
+    },
+    {
+      "step": 6,
+      "added": "resonance_a",
+      "f1": 0.2439171439645149,
+      "accuracy": 0.64886,
+      "marginal_f1": 0.028325142167165973
+    },
+    {
+      "step": 7,
+      "added": "phi",
+      "f1": 0.21763939434784563,
+      "accuracy": 0.65174,
+      "marginal_f1": -0.02627774961666926
+    },
+    {
+      "step": 8,
+      "added": "sqrt5",
+      "f1": 0.22319709924347553,
+      "accuracy": 0.65294,
+      "marginal_f1": 0.0055577048956299
+    },
+    {
+      "step": 9,
+      "added": "ln2",
+      "f1": 0.23307969563476172,
+      "accuracy": 0.6553,
+      "marginal_f1": 0.009882596391286191
+    },
+    {
+      "step": 10,
+      "added": "sqrt3",
+      "f1": 0.19557614141223179,
+      "accuracy": 0.6596,
+      "marginal_f1": -0.03750355422252993
+    },
+    {
+      "step": 11,
+      "added": "pi_phi",
+      "f1": 0.19218934911242602,
+      "accuracy": 0.6587,
+      "marginal_f1": -0.003386792299805763
+    },
+    {
+      "step": 12,
+      "added": "e",
+      "f1": 0.19359120212362532,
+      "accuracy": 0.65976,
+      "marginal_f1": 0.0014018530111993
+    },
+    {
+      "step": 13,
+      "added": "riemann_z2",
+      "f1": 0.2110580204778157,
+      "accuracy": 0.65326,
+      "marginal_f1": 0.017466818354190367
+    },
+    {
+      "step": 14,
+      "added": "sqrt2",
+      "f1": 0.20163949872797512,
+      "accuracy": 0.66108,
+      "marginal_f1": -0.009418521749840564
+    },
+    {
+      "step": 15,
+      "added": "pi_e",
+      "f1": 0.1772632193413436,
+      "accuracy": 0.66174,
+      "marginal_f1": -0.024376279386631533
+    },
+    {
+      "step": 16,
+      "added": "phi_sqrt2",
+      "f1": 0.1880309248830772,
+      "accuracy": 0.65972,
+      "marginal_f1": 0.010767705541733619
+    }
+  ],
+  "omega_ablation": {
+    "task": "omega",
+    "baseline_f1": 0.34397763026438466,
+    "baseline_acc": 0.3948,
+    "loo_results": {},
+    "single_results": {},
+    "ranking_by_importance": [
+      "pi",
+      "plastic",
+      "ln2",
+      "pi_phi",
+      "sqrt2",
+      "sqrt5",
+      "golden_angle",
+      "riemann_z1",
+      "pi_e",
+      "resonance_a",
+      "e",
+      "riemann_z2",
+      "sqrt3",
+      "phi",
+      "phi_sqrt2",
+      "phi_sq"
+    ],
+    "ranking_by_standalone": [
+      "pi",
+      "phi",
+      "phi_sq",
+      "sqrt5",
+      "riemann_z1",
+      "sqrt3",
+      "ln2",
+      "golden_angle",
+      "pi_phi",
+      "phi_sqrt2",
+      "e",
+      "plastic",
+      "resonance_a",
+      "riemann_z2",
+      "pi_e",
+      "sqrt2"
+    ]
+  },
+  "omega_accumulation": [
+    {
+      "step": 1,
+      "added": "pi",
+      "f1": 0.15523737754333083,
+      "accuracy": 0.86548,
+      "marginal_f1": 0.15523737754333083
+    },
+    {
+      "step": 2,
+      "added": "sqrt3",
+      "f1": 0.09537953795379538,
+      "accuracy": 0.89036,
+      "marginal_f1": -0.05985783958953546
+    },
+    {
+      "step": 3,
+      "added": "phi",
+      "f1": 0.1123279098873592,
+      "accuracy": 0.88652,
+      "marginal_f1": 0.016948371933563827
+    },
+    {
+      "step": 4,
+      "added": "pi_phi",
+      "f1": 0.09309114498864741,
+      "accuracy": 0.88816,
+      "marginal_f1": -0.01923676489871179
+    },
+    {
+      "step": 5,
+      "added": "resonance_a",
+      "f1": 0.048948374760994263,
+      "accuracy": 0.90052,
+      "marginal_f1": -0.04414277022765315
+    },
+    {
+      "step": 6,
+      "added": "plastic",
+      "f1": 0.03260648053800693,
+      "accuracy": 0.90506,
+      "marginal_f1": -0.016341894222987333
+    },
+    {
+      "step": 7,
+      "added": "e",
+      "f1": 0.04330017554125219,
+      "accuracy": 0.9019,
+      "marginal_f1": 0.010693695003245261
+    },
+    {
+      "step": 8,
+      "added": "phi_sqrt2",
+      "f1": 0.042898550724637684,
+      "accuracy": 0.90094,
+      "marginal_f1": -0.0004016248166145084
+    },
+    {
+      "step": 9,
+      "added": "golden_angle",
+      "f1": 0.03231017770597738,
+      "accuracy": 0.90416,
+      "marginal_f1": -0.0105883730186603
+    },
+    {
+      "step": 10,
+      "added": "pi_e",
+      "f1": 0.02903885480572597,
+      "accuracy": 0.90504,
+      "marginal_f1": -0.0032713229002514117
+    },
+    {
+      "step": 11,
+      "added": "sqrt2",
+      "f1": 0.021078735275883446,
+      "accuracy": 0.90526,
+      "marginal_f1": -0.007960119529842526
+    },
+    {
+      "step": 12,
+      "added": "sqrt5",
+      "f1": 0.012001714530647235,
+      "accuracy": 0.9078,
+      "marginal_f1": -0.009077020745236211
+    },
+    {
+      "step": 13,
+      "added": "riemann_z1",
+      "f1": 0.011333914559721011,
+      "accuracy": 0.90928,
+      "marginal_f1": -0.0006677999709262233
+    },
+    {
+      "step": 14,
+      "added": "phi_sq",
+      "f1": 0.0017765933821896514,
+      "accuracy": 0.9101,
+      "marginal_f1": -0.00955732117753136
+    },
+    {
+      "step": 15,
+      "added": "ln2",
+      "f1": 0.0022177866489243737,
+      "accuracy": 0.91002,
+      "marginal_f1": 0.0004411932667347223
+    },
+    {
+      "step": 16,
+      "added": "riemann_z2",
+      "f1": 0.002658985153999557,
+      "accuracy": 0.90998,
+      "marginal_f1": 0.00044119850507518335
+    }
+  ]
+}

@@ -1,0 +1,532 @@
+{
+  "phase": "Phase 9: Hybrid Architectures + New Task Domains + Scaling",
+  "config": {
+    "part_ab": {
+      "d_model": 128,
+      "nhead": 4,
+      "num_layers": 4,
+      "epochs": 30,
+      "train_range": [
+        2,
+        2000
+      ],
+      "n_train_per_task": 50000,
+      "n_eval_per_task": 1000,
+      "n_tasks": 8,
+      "tasks": [
+        "gcd",
+        "spf",
+        "ndiv",
+        "omega",
+        "coprime",
+        "isprime",
+        "modmul7",
+        "compare"
+      ]
+    },
+    "part_c": {
+      "d_model": 256,
+      "nhead": 8,
+      "num_layers": 4,
+      "epochs": 30,
+      "train_range": [
+        2,
+        2000
+      ],
+      "n_train_per_task": 50000,
+      "n_eval_per_task": 1000
+    }
+  },
+  "embedding_configs": {
+    "learned": {
+      "type": "learned",
+      "desc": "Pure learned embedding (nn.Embedding baseline)",
+      "const_names": null
+    },
+    "spirnor_rational5": {
+      "type": "spirnor",
+      "desc": "Pure SPIRNOR with rational_5 {2pi/2,3,5,7,11}",
+      "const_names": [
+        "2pi/2",
+        "2pi/3",
+        "2pi/5",
+        "2pi/7",
+        "2pi/11"
+      ]
+    },
+    "additive_hybrid": {
+      "type": "additive_hybrid",
+      "desc": "Additive: spirnor(n) + learned(n) -> LayerNorm",
+      "const_names": [
+        "2pi/2",
+        "2pi/3",
+        "2pi/5",
+        "2pi/7",
+        "2pi/11"
+      ]
+    },
+    "gated_hybrid": {
+      "type": "gated_hybrid",
+      "desc": "Gated: g*spirnor + (1-g)*learned, g=sigmoid(MLP)",
+      "const_names": [
+        "2pi/2",
+        "2pi/3",
+        "2pi/5",
+        "2pi/7",
+        "2pi/11"
+      ]
+    }
+  },
+  "results_part_ab": {
+    "learned": {
+      "params": 1189171,
+      "train_time": 360.4,
+      "embed_type": "learned",
+      "d_model": 128,
+      "nhead": 4,
+      "in_range": {
+        "gcd": 0.95,
+        "spf": 1.0,
+        "ndiv": 1.0,
+        "omega": 1.0,
+        "coprime": 0.986,
+        "isprime": 1.0,
+        "modmul7": 0.402,
+        "compare": 0.951,
+        "overall": 0.9111
+      },
+      "ood_2k_5k": {
+        "gcd": 0.46,
+        "spf": 0.256,
+        "ndiv": 0.161,
+        "omega": 0.32,
+        "coprime": 0.59,
+        "isprime": 0.508,
+        "modmul7": 0.124,
+        "compare": 0.765,
+        "overall": 0.398
+      },
+      "ood_5k_20k": {
+        "gcd": 0.477,
+        "spf": 0.341,
+        "ndiv": 0.172,
+        "omega": 0.343,
+        "coprime": 0.627,
+        "isprime": 0.508,
+        "modmul7": 0.163,
+        "compare": 0.691,
+        "overall": 0.4153
+      },
+      "ood_20k_100k": {
+        "gcd": 0.489,
+        "spf": 0.426,
+        "ndiv": 0.182,
+        "omega": 0.32,
+        "coprime": 0.602,
+        "isprime": 0.548,
+        "modmul7": 0.164,
+        "compare": 0.704,
+        "overall": 0.4294
+      },
+      "ood_100k_500k": {
+        "gcd": 0.521,
+        "spf": 0.389,
+        "ndiv": 0.211,
+        "omega": 0.3,
+        "coprime": 0.618,
+        "isprime": 0.545,
+        "modmul7": 0.151,
+        "compare": 0.684,
+        "overall": 0.4274
+      }
+    },
+    "spirnor_rational5": {
+      "params": 937779,
+      "train_time": 403.2,
+      "embed_type": "spirnor",
+      "d_model": 128,
+      "nhead": 4,
+      "in_range": {
+        "gcd": 0.89,
+        "spf": 1.0,
+        "ndiv": 1.0,
+        "omega": 1.0,
+        "coprime": 0.986,
+        "isprime": 1.0,
+        "modmul7": 0.866,
+        "compare": 0.966,
+        "overall": 0.9635
+      },
+      "ood_2k_5k": {
+        "gcd": 0.908,
+        "spf": 0.916,
+        "ndiv": 0.425,
+        "omega": 0.648,
+        "coprime": 0.987,
+        "isprime": 0.733,
+        "modmul7": 0.812,
+        "compare": 0.712,
+        "overall": 0.7676
+      },
+      "ood_5k_20k": {
+        "gcd": 0.883,
+        "spf": 0.908,
+        "ndiv": 0.394,
+        "omega": 0.588,
+        "coprime": 0.976,
+        "isprime": 0.763,
+        "modmul7": 0.83,
+        "compare": 0.671,
+        "overall": 0.7516
+      },
+      "ood_20k_100k": {
+        "gcd": 0.895,
+        "spf": 0.908,
+        "ndiv": 0.4,
+        "omega": 0.503,
+        "coprime": 0.983,
+        "isprime": 0.741,
+        "modmul7": 0.765,
+        "compare": 0.659,
+        "overall": 0.7318
+      },
+      "ood_100k_500k": {
+        "gcd": 0.904,
+        "spf": 0.894,
+        "ndiv": 0.375,
+        "omega": 0.432,
+        "coprime": 0.988,
+        "isprime": 0.731,
+        "modmul7": 0.724,
+        "compare": 0.658,
+        "overall": 0.7133
+      }
+    },
+    "additive_hybrid": {
+      "params": 1194163,
+      "train_time": 428.4,
+      "embed_type": "additive_hybrid",
+      "d_model": 128,
+      "nhead": 4,
+      "in_range": {
+        "gcd": 0.951,
+        "spf": 1.0,
+        "ndiv": 1.0,
+        "omega": 1.0,
+        "coprime": 0.981,
+        "isprime": 1.0,
+        "modmul7": 0.616,
+        "compare": 0.953,
+        "overall": 0.9376
+      },
+      "ood_2k_5k": {
+        "gcd": 0.853,
+        "spf": 0.902,
+        "ndiv": 0.392,
+        "omega": 0.631,
+        "coprime": 0.984,
+        "isprime": 0.765,
+        "modmul7": 0.601,
+        "compare": 0.717,
+        "overall": 0.7306
+      },
+      "ood_5k_20k": {
+        "gcd": 0.842,
+        "spf": 0.918,
+        "ndiv": 0.415,
+        "omega": 0.581,
+        "coprime": 0.971,
+        "isprime": 0.789,
+        "modmul7": 0.634,
+        "compare": 0.692,
+        "overall": 0.7302
+      },
+      "ood_20k_100k": {
+        "gcd": 0.863,
+        "spf": 0.919,
+        "ndiv": 0.417,
+        "omega": 0.533,
+        "coprime": 0.981,
+        "isprime": 0.776,
+        "modmul7": 0.608,
+        "compare": 0.684,
+        "overall": 0.7226
+      },
+      "ood_100k_500k": {
+        "gcd": 0.878,
+        "spf": 0.922,
+        "ndiv": 0.39,
+        "omega": 0.461,
+        "coprime": 0.979,
+        "isprime": 0.798,
+        "modmul7": 0.607,
+        "compare": 0.687,
+        "overall": 0.7153
+      }
+    },
+    "gated_hybrid": {
+      "params": 1210420,
+      "train_time": 416.9,
+      "embed_type": "gated_hybrid",
+      "d_model": 128,
+      "nhead": 4,
+      "gate_stats": {
+        "in_range": 0.5554,
+        "ood_2k_5k": 0.5585,
+        "ood_5k_20k": 0.5598,
+        "ood_20k_100k": 0.5621,
+        "ood_100k_500k": 0.566
+      },
+      "in_range": {
+        "gcd": 0.954,
+        "spf": 1.0,
+        "ndiv": 1.0,
+        "omega": 1.0,
+        "coprime": 0.985,
+        "isprime": 1.0,
+        "modmul7": 0.654,
+        "compare": 0.948,
+        "overall": 0.9426
+      },
+      "ood_2k_5k": {
+        "gcd": 0.837,
+        "spf": 0.914,
+        "ndiv": 0.397,
+        "omega": 0.639,
+        "coprime": 0.986,
+        "isprime": 0.761,
+        "modmul7": 0.608,
+        "compare": 0.719,
+        "overall": 0.7326
+      },
+      "ood_5k_20k": {
+        "gcd": 0.831,
+        "spf": 0.914,
+        "ndiv": 0.4,
+        "omega": 0.589,
+        "coprime": 0.972,
+        "isprime": 0.735,
+        "modmul7": 0.633,
+        "compare": 0.684,
+        "overall": 0.7198
+      },
+      "ood_20k_100k": {
+        "gcd": 0.851,
+        "spf": 0.919,
+        "ndiv": 0.401,
+        "omega": 0.511,
+        "coprime": 0.979,
+        "isprime": 0.743,
+        "modmul7": 0.616,
+        "compare": 0.68,
+        "overall": 0.7125
+      },
+      "ood_100k_500k": {
+        "gcd": 0.836,
+        "spf": 0.922,
+        "ndiv": 0.408,
+        "omega": 0.465,
+        "coprime": 0.981,
+        "isprime": 0.735,
+        "modmul7": 0.627,
+        "compare": 0.673,
+        "overall": 0.7059
+      }
+    }
+  },
+  "results_part_c": {
+    "learned_256": {
+      "params": 4213299,
+      "train_time": 783.2,
+      "embed_type": "learned",
+      "d_model": 256,
+      "nhead": 8,
+      "in_range": {
+        "gcd": 0.957,
+        "spf": 1.0,
+        "ndiv": 1.0,
+        "omega": 1.0,
+        "coprime": 0.983,
+        "isprime": 1.0,
+        "modmul7": 0.46,
+        "compare": 0.944,
+        "overall": 0.918
+      },
+      "ood_2k_5k": {
+        "gcd": 0.454,
+        "spf": 0.256,
+        "ndiv": 0.161,
+        "omega": 0.32,
+        "coprime": 0.589,
+        "isprime": 0.509,
+        "modmul7": 0.141,
+        "compare": 0.759,
+        "overall": 0.3986
+      },
+      "ood_5k_20k": {
+        "gcd": 0.473,
+        "spf": 0.342,
+        "ndiv": 0.172,
+        "omega": 0.343,
+        "coprime": 0.625,
+        "isprime": 0.508,
+        "modmul7": 0.155,
+        "compare": 0.682,
+        "overall": 0.4125
+      },
+      "ood_20k_100k": {
+        "gcd": 0.485,
+        "spf": 0.426,
+        "ndiv": 0.182,
+        "omega": 0.32,
+        "coprime": 0.601,
+        "isprime": 0.547,
+        "modmul7": 0.158,
+        "compare": 0.707,
+        "overall": 0.4283
+      },
+      "ood_100k_500k": {
+        "gcd": 0.507,
+        "spf": 0.39,
+        "ndiv": 0.211,
+        "omega": 0.3,
+        "coprime": 0.613,
+        "isprime": 0.543,
+        "modmul7": 0.158,
+        "compare": 0.687,
+        "overall": 0.4261
+      }
+    },
+    "spirnor_256": {
+      "params": 3710515,
+      "train_time": 805.9,
+      "embed_type": "spirnor",
+      "d_model": 256,
+      "nhead": 8,
+      "in_range": {
+        "gcd": 0.885,
+        "spf": 1.0,
+        "ndiv": 1.0,
+        "omega": 1.0,
+        "coprime": 0.981,
+        "isprime": 1.0,
+        "modmul7": 1.0,
+        "compare": 0.975,
+        "overall": 0.9801
+      },
+      "ood_2k_5k": {
+        "gcd": 0.89,
+        "spf": 0.915,
+        "ndiv": 0.43,
+        "omega": 0.652,
+        "coprime": 0.988,
+        "isprime": 0.75,
+        "modmul7": 1.0,
+        "compare": 0.751,
+        "overall": 0.797
+      },
+      "ood_5k_20k": {
+        "gcd": 0.864,
+        "spf": 0.922,
+        "ndiv": 0.366,
+        "omega": 0.598,
+        "coprime": 0.978,
+        "isprime": 0.753,
+        "modmul7": 1.0,
+        "compare": 0.709,
+        "overall": 0.7738
+      },
+      "ood_20k_100k": {
+        "gcd": 0.872,
+        "spf": 0.919,
+        "ndiv": 0.356,
+        "omega": 0.483,
+        "coprime": 0.978,
+        "isprime": 0.741,
+        "modmul7": 0.953,
+        "compare": 0.668,
+        "overall": 0.7462
+      },
+      "ood_100k_500k": {
+        "gcd": 0.869,
+        "spf": 0.908,
+        "ndiv": 0.367,
+        "omega": 0.423,
+        "coprime": 0.984,
+        "isprime": 0.744,
+        "modmul7": 0.841,
+        "compare": 0.677,
+        "overall": 0.7266
+      }
+    },
+    "gated_hybrid_256": {
+      "params": 4255668,
+      "train_time": 864.6,
+      "embed_type": "gated_hybrid",
+      "d_model": 256,
+      "nhead": 8,
+      "gate_stats": {
+        "in_range": 0.3777,
+        "ood_2k_5k": 0.3569,
+        "ood_5k_20k": 0.3405,
+        "ood_20k_100k": 0.3225,
+        "ood_100k_500k": 0.3054
+      },
+      "in_range": {
+        "gcd": 0.965,
+        "spf": 1.0,
+        "ndiv": 1.0,
+        "omega": 1.0,
+        "coprime": 0.983,
+        "isprime": 1.0,
+        "modmul7": 0.632,
+        "compare": 0.954,
+        "overall": 0.9417
+      },
+      "ood_2k_5k": {
+        "gcd": 0.836,
+        "spf": 0.892,
+        "ndiv": 0.403,
+        "omega": 0.622,
+        "coprime": 0.977,
+        "isprime": 0.74,
+        "modmul7": 0.596,
+        "compare": 0.72,
+        "overall": 0.7232
+      },
+      "ood_5k_20k": {
+        "gcd": 0.837,
+        "spf": 0.892,
+        "ndiv": 0.391,
+        "omega": 0.573,
+        "coprime": 0.973,
+        "isprime": 0.72,
+        "modmul7": 0.61,
+        "compare": 0.668,
+        "overall": 0.708
+      },
+      "ood_20k_100k": {
+        "gcd": 0.847,
+        "spf": 0.902,
+        "ndiv": 0.4,
+        "omega": 0.498,
+        "coprime": 0.968,
+        "isprime": 0.717,
+        "modmul7": 0.609,
+        "compare": 0.683,
+        "overall": 0.703
+      },
+      "ood_100k_500k": {
+        "gcd": 0.832,
+        "spf": 0.895,
+        "ndiv": 0.368,
+        "omega": 0.42,
+        "coprime": 0.978,
+        "isprime": 0.745,
+        "modmul7": 0.58,
+        "compare": 0.676,
+        "overall": 0.6867
+      }
+    }
+  }
+}

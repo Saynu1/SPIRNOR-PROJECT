@@ -1,0 +1,235 @@
+{
+  "results": {
+    "Learned+RoPE": {
+      "params": 1137703,
+      "train_time": 197.83984994888306,
+      "in_range": {
+        "gcd": 0.934,
+        "spf": 1.0,
+        "ndiv": 1.0,
+        "omega": 1.0,
+        "coprime": 0.972,
+        "overall": 0.9812
+      },
+      "ood_2k_5k": {
+        "gcd": 0.451,
+        "spf": 0.249,
+        "ndiv": 0.146,
+        "omega": 0.361,
+        "coprime": 0.585,
+        "overall": 0.3584
+      },
+      "ood_5k_20k": {
+        "gcd": 0.499,
+        "spf": 0.362,
+        "ndiv": 0.192,
+        "omega": 0.35,
+        "coprime": 0.62,
+        "overall": 0.4046
+      },
+      "ood_20k_100k": {
+        "gcd": 0.514,
+        "spf": 0.409,
+        "ndiv": 0.22,
+        "omega": 0.334,
+        "coprime": 0.614,
+        "overall": 0.4182
+      },
+      "ood_100k_500k": {
+        "gcd": 0.475,
+        "spf": 0.384,
+        "ndiv": 0.207,
+        "omega": 0.316,
+        "coprime": 0.596,
+        "overall": 0.3956
+      }
+    },
+    "Sinusoidal+RoPE": {
+      "params": 898215,
+      "train_time": 183.72147583961487,
+      "in_range": {
+        "gcd": 0.903,
+        "spf": 1.0,
+        "ndiv": 1.0,
+        "omega": 1.0,
+        "coprime": 0.956,
+        "overall": 0.9718
+      },
+      "ood_2k_5k": {
+        "gcd": 0.398,
+        "spf": 0.347,
+        "ndiv": 0.219,
+        "omega": 0.389,
+        "coprime": 0.553,
+        "overall": 0.3812
+      },
+      "ood_5k_20k": {
+        "gcd": 0.381,
+        "spf": 0.394,
+        "ndiv": 0.184,
+        "omega": 0.363,
+        "coprime": 0.488,
+        "overall": 0.362
+      },
+      "ood_20k_100k": {
+        "gcd": 0.373,
+        "spf": 0.391,
+        "ndiv": 0.212,
+        "omega": 0.323,
+        "coprime": 0.524,
+        "overall": 0.3646
+      },
+      "ood_100k_500k": {
+        "gcd": 0.364,
+        "spf": 0.399,
+        "ndiv": 0.209,
+        "omega": 0.288,
+        "coprime": 0.478,
+        "overall": 0.3476
+      }
+    },
+    "SPIRNOR+RoPE": {
+      "params": 888999,
+      "train_time": 211.14295268058777,
+      "in_range": {
+        "gcd": 0.897,
+        "spf": 1.0,
+        "ndiv": 1.0,
+        "omega": 1.0,
+        "coprime": 0.961,
+        "overall": 0.9716
+      },
+      "ood_2k_5k": {
+        "gcd": 0.853,
+        "spf": 0.74,
+        "ndiv": 0.328,
+        "omega": 0.471,
+        "coprime": 0.911,
+        "overall": 0.6606
+      },
+      "ood_5k_20k": {
+        "gcd": 0.707,
+        "spf": 0.693,
+        "ndiv": 0.284,
+        "omega": 0.412,
+        "coprime": 0.811,
+        "overall": 0.5814
+      },
+      "ood_20k_100k": {
+        "gcd": 0.642,
+        "spf": 0.621,
+        "ndiv": 0.278,
+        "omega": 0.368,
+        "coprime": 0.799,
+        "overall": 0.5416
+      },
+      "ood_100k_500k": {
+        "gcd": 0.64,
+        "spf": 0.606,
+        "ndiv": 0.314,
+        "omega": 0.324,
+        "coprime": 0.813,
+        "overall": 0.5394
+      }
+    },
+    "SPIRNOR+SRoPE": {
+      "params": 888999,
+      "train_time": 218.23901081085205,
+      "in_range": {
+        "gcd": 0.91,
+        "spf": 1.0,
+        "ndiv": 1.0,
+        "omega": 1.0,
+        "coprime": 0.965,
+        "overall": 0.975
+      },
+      "ood_2k_5k": {
+        "gcd": 0.85,
+        "spf": 0.741,
+        "ndiv": 0.328,
+        "omega": 0.452,
+        "coprime": 0.912,
+        "overall": 0.6566
+      },
+      "ood_5k_20k": {
+        "gcd": 0.682,
+        "spf": 0.693,
+        "ndiv": 0.295,
+        "omega": 0.429,
+        "coprime": 0.783,
+        "overall": 0.5764
+      },
+      "ood_20k_100k": {
+        "gcd": 0.624,
+        "spf": 0.616,
+        "ndiv": 0.274,
+        "omega": 0.379,
+        "coprime": 0.781,
+        "overall": 0.5348
+      },
+      "ood_100k_500k": {
+        "gcd": 0.617,
+        "spf": 0.599,
+        "ndiv": 0.3,
+        "omega": 0.337,
+        "coprime": 0.804,
+        "overall": 0.5314
+      }
+    }
+  },
+  "config": {
+    "d_model": 128,
+    "nhead": 4,
+    "num_layers": 4,
+    "epochs": 30,
+    "train_range": [
+      2,
+      2000
+    ],
+    "n_train_per_task": 50000,
+    "n_eval_per_task": 1000,
+    "tasks": {
+      "gcd": {
+        "n_inputs": 2,
+        "n_classes": 9,
+        "name": "GCD"
+      },
+      "spf": {
+        "n_inputs": 1,
+        "n_classes": 10,
+        "name": "SPF"
+      },
+      "ndiv": {
+        "n_inputs": 1,
+        "n_classes": 13,
+        "name": "NumDiv"
+      },
+      "omega": {
+        "n_inputs": 1,
+        "n_classes": 5,
+        "name": "Omega"
+      },
+      "coprime": {
+        "n_inputs": 2,
+        "n_classes": 2,
+        "name": "Coprime"
+      }
+    },
+    "configs": [
+      "Learned+RoPE",
+      "Sinusoidal+RoPE",
+      "SPIRNOR+RoPE",
+      "SPIRNOR+SRoPE"
+    ],
+    "spirnor_constants": {
+      "pi": 3.141592653589793,
+      "sqrt2": 1.4142135623730951,
+      "phi_sq": 2.618033988749895,
+      "e": 2.718281828459045,
+      "golden_angle": 2.399963229728653,
+      "phi": 1.618033988749895,
+      "ln2": 0.6931471805599453,
+      "pi_e": 1.1557273497909217
+    }
+  }
+}

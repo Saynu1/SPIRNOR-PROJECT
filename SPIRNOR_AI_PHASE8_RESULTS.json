@@ -1,0 +1,505 @@
+{
+  "phase": "Phase 8: Rational Fraction Constants",
+  "hypothesis": "Constants C=2pi/p for prime p create exact mod-p encodings that may outperform irrational constants",
+  "config": {
+    "d_model": 128,
+    "nhead": 4,
+    "num_layers": 4,
+    "epochs": 30,
+    "train_range": [
+      2,
+      2000
+    ],
+    "n_train_per_task": 50000,
+    "n_eval_per_task": 1000
+  },
+  "constant_sets": {
+    "irrational_8": {
+      "names": [
+        "pi",
+        "sqrt2",
+        "phi_sq",
+        "e",
+        "golden_angle",
+        "phi",
+        "ln2",
+        "pi_e"
+      ],
+      "values": [
+        3.141592653589793,
+        1.4142135623730951,
+        2.618033988749895,
+        2.718281828459045,
+        2.399963229728653,
+        1.618033988749895,
+        0.6931471805599453,
+        1.1557273497909217
+      ],
+      "type": "spirnor",
+      "desc": "Original 8 irrationals (Phase 6 baseline)"
+    },
+    "irrational_3": {
+      "names": [
+        "pi",
+        "sqrt2",
+        "phi_sq"
+      ],
+      "values": [
+        3.141592653589793,
+        1.4142135623730951,
+        2.618033988749895
+      ],
+      "type": "spirnor",
+      "desc": "Sweet spot from Phase 7 (pi, sqrt2, phi^2)"
+    },
+    "rational_5": {
+      "names": [
+        "2pi/2",
+        "2pi/3",
+        "2pi/5",
+        "2pi/7",
+        "2pi/11"
+      ],
+      "values": [
+        3.141592653589793,
+        2.0943951023931953,
+        1.2566370614359172,
+        0.8975979010256552,
+        0.5711986642890533
+      ],
+      "type": "spirnor",
+      "desc": "Rational 2pi/p for first 5 primes (mod 2*3*5*7*11=2310)"
+    },
+    "rational_8": {
+      "names": [
+        "2pi/2",
+        "2pi/3",
+        "2pi/5",
+        "2pi/7",
+        "2pi/11",
+        "2pi/13",
+        "2pi/17",
+        "2pi/19"
+      ],
+      "values": [
+        3.141592653589793,
+        2.0943951023931953,
+        1.2566370614359172,
+        0.8975979010256552,
+        0.5711986642890533,
+        0.483321946706122,
+        0.36959913571644626,
+        0.3306939635357677
+      ],
+      "type": "spirnor",
+      "desc": "Rational 2pi/p for first 8 primes (mod 9,699,690)"
+    },
+    "rational_3": {
+      "names": [
+        "2pi/2",
+        "2pi/3",
+        "2pi/5"
+      ],
+      "values": [
+        3.141592653589793,
+        2.0943951023931953,
+        1.2566370614359172
+      ],
+      "type": "spirnor",
+      "desc": "Rational 2pi/p for first 3 primes (mod 30)"
+    },
+    "hybrid_5": {
+      "names": [
+        "2pi/2",
+        "2pi/3",
+        "2pi/5",
+        "sqrt2",
+        "phi_sq"
+      ],
+      "values": [
+        3.141592653589793,
+        2.0943951023931953,
+        1.2566370614359172,
+        1.4142135623730951,
+        2.618033988749895
+      ],
+      "type": "spirnor",
+      "desc": "Rational primes {2,3,5} + best irrationals {sqrt2, phi^2}"
+    },
+    "learned_baseline": {
+      "names": [],
+      "values": [],
+      "type": "learned",
+      "desc": "Standard learned embedding (reference baseline)"
+    }
+  },
+  "results": {
+    "irrational_8": {
+      "params": 888999,
+      "train_time": 1162.0,
+      "n_constants": 8,
+      "constants": [
+        "pi",
+        "sqrt2",
+        "phi_sq",
+        "e",
+        "golden_angle",
+        "phi",
+        "ln2",
+        "pi_e"
+      ],
+      "const_type": "spirnor",
+      "in_range": {
+        "gcd": 0.92,
+        "spf": 1.0,
+        "ndiv": 1.0,
+        "omega": 1.0,
+        "coprime": 0.96,
+        "overall": 0.976
+      },
+      "ood_2k_5k": {
+        "gcd": 0.851,
+        "spf": 0.736,
+        "ndiv": 0.327,
+        "omega": 0.434,
+        "coprime": 0.913,
+        "overall": 0.6522
+      },
+      "ood_5k_20k": {
+        "gcd": 0.708,
+        "spf": 0.667,
+        "ndiv": 0.338,
+        "omega": 0.427,
+        "coprime": 0.814,
+        "overall": 0.5908
+      },
+      "ood_20k_100k": {
+        "gcd": 0.636,
+        "spf": 0.628,
+        "ndiv": 0.272,
+        "omega": 0.371,
+        "coprime": 0.794,
+        "overall": 0.5402
+      },
+      "ood_100k_500k": {
+        "gcd": 0.641,
+        "spf": 0.613,
+        "ndiv": 0.3,
+        "omega": 0.347,
+        "coprime": 0.792,
+        "overall": 0.5386
+      }
+    },
+    "irrational_3": {
+      "params": 884519,
+      "train_time": 193.2,
+      "n_constants": 3,
+      "constants": [
+        "pi",
+        "sqrt2",
+        "phi_sq"
+      ],
+      "const_type": "spirnor",
+      "in_range": {
+        "gcd": 0.898,
+        "spf": 1.0,
+        "ndiv": 0.998,
+        "omega": 0.998,
+        "coprime": 0.937,
+        "overall": 0.9662
+      },
+      "ood_2k_5k": {
+        "gcd": 0.888,
+        "spf": 0.72,
+        "ndiv": 0.359,
+        "omega": 0.445,
+        "coprime": 0.945,
+        "overall": 0.6714
+      },
+      "ood_5k_20k": {
+        "gcd": 0.724,
+        "spf": 0.685,
+        "ndiv": 0.312,
+        "omega": 0.398,
+        "coprime": 0.832,
+        "overall": 0.5902
+      },
+      "ood_20k_100k": {
+        "gcd": 0.666,
+        "spf": 0.624,
+        "ndiv": 0.268,
+        "omega": 0.356,
+        "coprime": 0.818,
+        "overall": 0.5464
+      },
+      "ood_100k_500k": {
+        "gcd": 0.683,
+        "spf": 0.636,
+        "ndiv": 0.293,
+        "omega": 0.301,
+        "coprime": 0.804,
+        "overall": 0.5434
+      }
+    },
+    "rational_5": {
+      "params": 886311,
+      "train_time": 189.0,
+      "n_constants": 5,
+      "constants": [
+        "2pi/2",
+        "2pi/3",
+        "2pi/5",
+        "2pi/7",
+        "2pi/11"
+      ],
+      "const_type": "spirnor",
+      "in_range": {
+        "gcd": 0.907,
+        "spf": 1.0,
+        "ndiv": 1.0,
+        "omega": 1.0,
+        "coprime": 0.987,
+        "overall": 0.9788
+      },
+      "ood_2k_5k": {
+        "gcd": 0.901,
+        "spf": 0.919,
+        "ndiv": 0.431,
+        "omega": 0.657,
+        "coprime": 0.985,
+        "overall": 0.7786
+      },
+      "ood_5k_20k": {
+        "gcd": 0.897,
+        "spf": 0.928,
+        "ndiv": 0.401,
+        "omega": 0.586,
+        "coprime": 0.983,
+        "overall": 0.759
+      },
+      "ood_20k_100k": {
+        "gcd": 0.909,
+        "spf": 0.922,
+        "ndiv": 0.373,
+        "omega": 0.508,
+        "coprime": 0.981,
+        "overall": 0.7386
+      },
+      "ood_100k_500k": {
+        "gcd": 0.902,
+        "spf": 0.891,
+        "ndiv": 0.39,
+        "omega": 0.451,
+        "coprime": 0.979,
+        "overall": 0.7226
+      }
+    },
+    "rational_8": {
+      "params": 888999,
+      "train_time": 195.3,
+      "n_constants": 8,
+      "constants": [
+        "2pi/2",
+        "2pi/3",
+        "2pi/5",
+        "2pi/7",
+        "2pi/11",
+        "2pi/13",
+        "2pi/17",
+        "2pi/19"
+      ],
+      "const_type": "spirnor",
+      "in_range": {
+        "gcd": 0.905,
+        "spf": 1.0,
+        "ndiv": 1.0,
+        "omega": 1.0,
+        "coprime": 0.987,
+        "overall": 0.9784
+      },
+      "ood_2k_5k": {
+        "gcd": 0.884,
+        "spf": 0.924,
+        "ndiv": 0.433,
+        "omega": 0.636,
+        "coprime": 0.983,
+        "overall": 0.772
+      },
+      "ood_5k_20k": {
+        "gcd": 0.883,
+        "spf": 0.932,
+        "ndiv": 0.407,
+        "omega": 0.607,
+        "coprime": 0.98,
+        "overall": 0.7618
+      },
+      "ood_20k_100k": {
+        "gcd": 0.895,
+        "spf": 0.935,
+        "ndiv": 0.4,
+        "omega": 0.499,
+        "coprime": 0.977,
+        "overall": 0.7412
+      },
+      "ood_100k_500k": {
+        "gcd": 0.879,
+        "spf": 0.906,
+        "ndiv": 0.416,
+        "omega": 0.433,
+        "coprime": 0.976,
+        "overall": 0.722
+      }
+    },
+    "rational_3": {
+      "params": 884519,
+      "train_time": 182.3,
+      "n_constants": 3,
+      "constants": [
+        "2pi/2",
+        "2pi/3",
+        "2pi/5"
+      ],
+      "const_type": "spirnor",
+      "in_range": {
+        "gcd": 0.887,
+        "spf": 0.996,
+        "ndiv": 0.863,
+        "omega": 0.938,
+        "coprime": 0.966,
+        "overall": 0.93
+      },
+      "ood_2k_5k": {
+        "gcd": 0.887,
+        "spf": 0.854,
+        "ndiv": 0.335,
+        "omega": 0.545,
+        "coprime": 0.973,
+        "overall": 0.7188
+      },
+      "ood_5k_20k": {
+        "gcd": 0.877,
+        "spf": 0.855,
+        "ndiv": 0.358,
+        "omega": 0.483,
+        "coprime": 0.963,
+        "overall": 0.7072
+      },
+      "ood_20k_100k": {
+        "gcd": 0.894,
+        "spf": 0.863,
+        "ndiv": 0.362,
+        "omega": 0.419,
+        "coprime": 0.973,
+        "overall": 0.7022
+      },
+      "ood_100k_500k": {
+        "gcd": 0.882,
+        "spf": 0.85,
+        "ndiv": 0.375,
+        "omega": 0.396,
+        "coprime": 0.973,
+        "overall": 0.6952
+      }
+    },
+    "hybrid_5": {
+      "params": 886311,
+      "train_time": 187.6,
+      "n_constants": 5,
+      "constants": [
+        "2pi/2",
+        "2pi/3",
+        "2pi/5",
+        "sqrt2",
+        "phi_sq"
+      ],
+      "const_type": "spirnor",
+      "in_range": {
+        "gcd": 0.936,
+        "spf": 1.0,
+        "ndiv": 1.0,
+        "omega": 1.0,
+        "coprime": 0.962,
+        "overall": 0.9796
+      },
+      "ood_2k_5k": {
+        "gcd": 0.929,
+        "spf": 0.83,
+        "ndiv": 0.401,
+        "omega": 0.55,
+        "coprime": 0.973,
+        "overall": 0.7366
+      },
+      "ood_5k_20k": {
+        "gcd": 0.899,
+        "spf": 0.843,
+        "ndiv": 0.391,
+        "omega": 0.516,
+        "coprime": 0.964,
+        "overall": 0.7226
+      },
+      "ood_20k_100k": {
+        "gcd": 0.836,
+        "spf": 0.839,
+        "ndiv": 0.319,
+        "omega": 0.449,
+        "coprime": 0.97,
+        "overall": 0.6826
+      },
+      "ood_100k_500k": {
+        "gcd": 0.851,
+        "spf": 0.825,
+        "ndiv": 0.353,
+        "omega": 0.432,
+        "coprime": 0.972,
+        "overall": 0.6866
+      }
+    },
+    "learned_baseline": {
+      "params": 1137703,
+      "train_time": 173.8,
+      "n_constants": 0,
+      "constants": [],
+      "const_type": "learned",
+      "in_range": {
+        "gcd": 0.954,
+        "spf": 1.0,
+        "ndiv": 1.0,
+        "omega": 1.0,
+        "coprime": 0.971,
+        "overall": 0.985
+      },
+      "ood_2k_5k": {
+        "gcd": 0.447,
+        "spf": 0.24,
+        "ndiv": 0.16,
+        "omega": 0.362,
+        "coprime": 0.576,
+        "overall": 0.357
+      },
+      "ood_5k_20k": {
+        "gcd": 0.515,
+        "spf": 0.353,
+        "ndiv": 0.223,
+        "omega": 0.327,
+        "coprime": 0.61,
+        "overall": 0.4056
+      },
+      "ood_20k_100k": {
+        "gcd": 0.518,
+        "spf": 0.377,
+        "ndiv": 0.211,
+        "omega": 0.33,
+        "coprime": 0.632,
+        "overall": 0.4136
+      },
+      "ood_100k_500k": {
+        "gcd": 0.531,
+        "spf": 0.37,
+        "ndiv": 0.194,
+        "omega": 0.302,
+        "coprime": 0.614,
+        "overall": 0.4022
+      }
+    }
+  }
+}

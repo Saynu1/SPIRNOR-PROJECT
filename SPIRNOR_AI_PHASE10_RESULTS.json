@@ -1,0 +1,278 @@
+{
+  "config": {
+    "d_model": 128,
+    "nhead": 4,
+    "num_layers": 6,
+    "d_ff": 512,
+    "epochs": 30,
+    "batch": 512,
+    "lr": 0.0003,
+    "n_train": 200000,
+    "n_eval": 1000,
+    "spirnor_constants": [
+      "2pi/2",
+      "2pi/3",
+      "2pi/5",
+      "2pi/7",
+      "2pi/11"
+    ]
+  },
+  "add_baseline": {
+    "params": 1191936,
+    "train_time": 503.0,
+    "in_range": {
+      "exact_match": 1.0,
+      "length_acc": 1.0,
+      "per_digit": 1.0
+    },
+    "4_digit": {
+      "exact_match": 0.0,
+      "length_acc": 0.0,
+      "per_digit": 0.1306892067620286
+    },
+    "5_digit": {
+      "exact_match": 0.0,
+      "length_acc": 0.0,
+      "per_digit": 0.0
+    },
+    "6_digit": {
+      "exact_match": 0.0,
+      "length_acc": 0.0,
+      "per_digit": 0.0006053268765133172
+    }
+  },
+  "add_spirnor_aug": {
+    "params": 1196544,
+    "train_time": 502.0,
+    "in_range": {
+      "exact_match": 0.978,
+      "length_acc": 1.0,
+      "per_digit": 0.9922480620155039
+    },
+    "4_digit": {
+      "exact_match": 0.0,
+      "length_acc": 0.0,
+      "per_digit": 0.1601647160814911
+    },
+    "5_digit": {
+      "exact_match": 0.0,
+      "length_acc": 0.0,
+      "per_digit": 0.021719779241588036
+    },
+    "6_digit": {
+      "exact_match": 0.0,
+      "length_acc": 0.052,
+      "per_digit": 0.11522212264754833
+    }
+  },
+  "add_learned_aug": {
+    "params": 1319936,
+    "train_time": 511.4,
+    "in_range": {
+      "exact_match": 0.087,
+      "length_acc": 0.998,
+      "per_digit": 0.6469575200918485
+    },
+    "4_digit": {
+      "exact_match": 0.0,
+      "length_acc": 0.0,
+      "per_digit": 0.15019505851755527
+    },
+    "5_digit": {
+      "exact_match": 0.0,
+      "length_acc": 0.0,
+      "per_digit": 0.0
+    },
+    "6_digit": {
+      "exact_match": 0.0,
+      "length_acc": 0.0,
+      "per_digit": 0.0
+    }
+  },
+  "add_std_rope": {
+    "params": 1191936,
+    "train_time": 517.2,
+    "in_range": {
+      "exact_match": 0.991,
+      "length_acc": 1.0,
+      "per_digit": 0.9974160206718347
+    },
+    "4_digit": {
+      "exact_match": 0.0,
+      "length_acc": 0.074,
+      "per_digit": 0.15139701104613384
+    },
+    "5_digit": {
+      "exact_match": 0.0,
+      "length_acc": 0.0,
+      "per_digit": 0.08171621862204023
+    },
+    "6_digit": {
+      "exact_match": 0.0,
+      "length_acc": 0.0,
+      "per_digit": 0.09298113207547169
+    }
+  },
+  "add_spirnor_rope": {
+    "params": 1191936,
+    "train_time": 522.5,
+    "in_range": {
+      "exact_match": 1.0,
+      "length_acc": 1.0,
+      "per_digit": 1.0
+    },
+    "4_digit": {
+      "exact_match": 0.0,
+      "length_acc": 0.037,
+      "per_digit": 0.10186389250108366
+    },
+    "5_digit": {
+      "exact_match": 0.0,
+      "length_acc": 0.0,
+      "per_digit": 0.07744347516467866
+    },
+    "6_digit": {
+      "exact_match": 0.0,
+      "length_acc": 0.0,
+      "per_digit": 0.07838983050847458
+    }
+  },
+  "add_spirnor_full": {
+    "params": 1196544,
+    "train_time": 522.4,
+    "in_range": {
+      "exact_match": 1.0,
+      "length_acc": 1.0,
+      "per_digit": 1.0
+    },
+    "4_digit": {
+      "exact_match": 0.0,
+      "length_acc": 0.038,
+      "per_digit": 0.11638491547464239
+    },
+    "5_digit": {
+      "exact_match": 0.0,
+      "length_acc": 0.003,
+      "per_digit": 0.08705714794374221
+    },
+    "6_digit": {
+      "exact_match": 0.0,
+      "length_acc": 0.0,
+      "per_digit": 0.10154358353510896
+    }
+  },
+  "mul_baseline": {
+    "params": 1191936,
+    "train_time": 523.8,
+    "in_range": {
+      "exact_match": 1.0,
+      "length_acc": 1.0,
+      "per_digit": 1.0
+    },
+    "3_digit": {
+      "exact_match": 0.0,
+      "length_acc": 0.0,
+      "per_digit": 0.035401271696167726
+    },
+    "3_digit_mix": {
+      "exact_match": 0.01,
+      "length_acc": 0.029,
+      "per_digit": 0.06572349570200572
+    }
+  },
+  "mul_spirnor_aug": {
+    "params": 1196544,
+    "train_time": 516.6,
+    "in_range": {
+      "exact_match": 1.0,
+      "length_acc": 1.0,
+      "per_digit": 1.0
+    },
+    "3_digit": {
+      "exact_match": 0.0,
+      "length_acc": 0.0,
+      "per_digit": 0.05911668671593057
+    },
+    "3_digit_mix": {
+      "exact_match": 0.011,
+      "length_acc": 0.026,
+      "per_digit": 0.07809421457997492
+    }
+  },
+  "mul_learned_aug": {
+    "params": 1204736,
+    "train_time": 516.7,
+    "in_range": {
+      "exact_match": 1.0,
+      "length_acc": 1.0,
+      "per_digit": 1.0
+    },
+    "3_digit": {
+      "exact_match": 0.0,
+      "length_acc": 0.0,
+      "per_digit": 0.027820710973724884
+    },
+    "3_digit_mix": {
+      "exact_match": 0.009,
+      "length_acc": 0.009,
+      "per_digit": 0.04388321690847215
+    }
+  },
+  "mul_std_rope": {
+    "params": 1191936,
+    "train_time": 566.0,
+    "in_range": {
+      "exact_match": 1.0,
+      "length_acc": 1.0,
+      "per_digit": 1.0
+    },
+    "3_digit": {
+      "exact_match": 0.0,
+      "length_acc": 0.0,
+      "per_digit": 0.13699299560188957
+    },
+    "3_digit_mix": {
+      "exact_match": 0.012,
+      "length_acc": 0.031,
+      "per_digit": 0.15718157181571815
+    }
+  },
+  "mul_spirnor_rope": {
+    "params": 1191936,
+    "train_time": 536.9,
+    "in_range": {
+      "exact_match": 0.999,
+      "length_acc": 1.0,
+      "per_digit": 0.9997255009607466
+    },
+    "3_digit": {
+      "exact_match": 0.0,
+      "length_acc": 0.0,
+      "per_digit": 0.06547516755456263
+    },
+    "3_digit_mix": {
+      "exact_match": 0.01,
+      "length_acc": 0.027,
+      "per_digit": 0.07718481375358166
+    }
+  },
+  "mul_spirnor_full": {
+    "params": 1196544,
+    "train_time": 531.9,
+    "in_range": {
+      "exact_match": 1.0,
+      "length_acc": 1.0,
+      "per_digit": 1.0
+    },
+    "3_digit": {
+      "exact_match": 0.0,
+      "length_acc": 0.0,
+      "per_digit": 0.06272555421893797
+    },
+    "3_digit_mix": {
+      "exact_match": 0.009,
+      "length_acc": 0.019,
+      "per_digit": 0.06555615260612574
+    }
+  }
+}
