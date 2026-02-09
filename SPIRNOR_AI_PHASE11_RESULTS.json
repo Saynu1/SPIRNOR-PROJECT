@@ -1,0 +1,317 @@
+{
+  "phase": "Phase 11: Compositional & Structured Numeric Reasoning",
+  "config": {
+    "part_a": {
+      "d_model": 128,
+      "nhead": 4,
+      "num_layers": 6,
+      "epochs": 30,
+      "train_range": [
+        2,
+        2000
+      ],
+      "n_train_per_task": 50000,
+      "n_eval_per_task": 1000,
+      "n_tasks": 8,
+      "tasks": [
+        "mod30",
+        "prodmod30",
+        "summod30",
+        "diophantine",
+        "gcdequals",
+        "setalldiv",
+        "setcoprime",
+        "hiddenmod"
+      ],
+      "spirnor_constants": [
+        "2pi/2",
+        "2pi/3",
+        "2pi/5",
+        "2pi/7",
+        "2pi/11"
+      ]
+    },
+    "part_b": {
+      "d_model": 256,
+      "nhead": 8,
+      "num_layers": 6,
+      "epochs": 30,
+      "train_range": [
+        2,
+        2000
+      ],
+      "n_train_per_task": 50000,
+      "n_eval_per_task": 1000
+    }
+  },
+  "task_families": {
+    "A_CRT": [
+      "mod30",
+      "prodmod30"
+    ],
+    "B_Compositional": [
+      "summod30",
+      "diophantine",
+      "gcdequals"
+    ],
+    "C_Set": [
+      "setalldiv",
+      "setcoprime"
+    ],
+    "D_Pattern": [
+      "hiddenmod"
+    ]
+  },
+  "results_part_a": {
+    "spirnor_rational5": {
+      "params": 1341031,
+      "train_time": 335.9,
+      "embed_type": "spirnor",
+      "d_model": 128,
+      "nhead": 4,
+      "in_range": {
+        "mod30": 1.0,
+        "prodmod30": 1.0,
+        "summod30": 1.0,
+        "diophantine": 0.977,
+        "gcdequals": 0.984,
+        "setalldiv": 1.0,
+        "setcoprime": 0.998,
+        "hiddenmod": 0.999,
+        "overall": 0.9948
+      },
+      "ood_2k_5k": {
+        "mod30": 1.0,
+        "prodmod30": 1.0,
+        "summod30": 1.0,
+        "diophantine": 0.979,
+        "gcdequals": 0.983,
+        "setalldiv": 0.991,
+        "setcoprime": 0.952,
+        "hiddenmod": 0.999,
+        "overall": 0.988
+      },
+      "ood_5k_20k": {
+        "mod30": 1.0,
+        "prodmod30": 1.0,
+        "summod30": 1.0,
+        "diophantine": 0.967,
+        "gcdequals": 0.976,
+        "setalldiv": 0.97,
+        "setcoprime": 0.933,
+        "hiddenmod": 0.995,
+        "overall": 0.9801
+      },
+      "ood_20k_100k": {
+        "mod30": 1.0,
+        "prodmod30": 1.0,
+        "summod30": 0.991,
+        "diophantine": 0.977,
+        "gcdequals": 0.978,
+        "setalldiv": 0.975,
+        "setcoprime": 0.937,
+        "hiddenmod": 0.994,
+        "overall": 0.9815
+      },
+      "ood_100k_500k": {
+        "mod30": 1.0,
+        "prodmod30": 0.996,
+        "summod30": 0.923,
+        "diophantine": 0.965,
+        "gcdequals": 0.98,
+        "setalldiv": 0.978,
+        "setcoprime": 0.951,
+        "hiddenmod": 0.998,
+        "overall": 0.9739
+      }
+    },
+    "learned": {
+      "params": 1592423,
+      "train_time": 269.8,
+      "embed_type": "learned",
+      "d_model": 128,
+      "nhead": 4,
+      "in_range": {
+        "mod30": 1.0,
+        "prodmod30": 1.0,
+        "summod30": 0.989,
+        "diophantine": 0.977,
+        "gcdequals": 0.982,
+        "setalldiv": 1.0,
+        "setcoprime": 0.998,
+        "hiddenmod": 0.95,
+        "overall": 0.987
+      },
+      "ood_2k_5k": {
+        "mod30": 0.0,
+        "prodmod30": 0.118,
+        "summod30": 0.007,
+        "diophantine": 0.612,
+        "gcdequals": 0.741,
+        "setalldiv": 0.598,
+        "setcoprime": 0.604,
+        "hiddenmod": 0.562,
+        "overall": 0.4052
+      },
+      "ood_5k_20k": {
+        "mod30": 0.0,
+        "prodmod30": 0.131,
+        "summod30": 0.104,
+        "diophantine": 0.611,
+        "gcdequals": 0.773,
+        "setalldiv": 0.594,
+        "setcoprime": 0.641,
+        "hiddenmod": 0.402,
+        "overall": 0.407
+      },
+      "ood_20k_100k": {
+        "mod30": 0.112,
+        "prodmod30": 0.133,
+        "summod30": 0.085,
+        "diophantine": 0.608,
+        "gcdequals": 0.773,
+        "setalldiv": 0.605,
+        "setcoprime": 0.617,
+        "hiddenmod": 0.422,
+        "overall": 0.4194
+      },
+      "ood_100k_500k": {
+        "mod30": 0.104,
+        "prodmod30": 0.147,
+        "summod30": 0.108,
+        "diophantine": 0.609,
+        "gcdequals": 0.782,
+        "setalldiv": 0.599,
+        "setcoprime": 0.631,
+        "hiddenmod": 0.411,
+        "overall": 0.4239
+      }
+    }
+  },
+  "results_part_b": {
+    "spirnor_256": {
+      "params": 5303399,
+      "train_time": 677.0,
+      "embed_type": "spirnor",
+      "d_model": 256,
+      "nhead": 8,
+      "in_range": {
+        "mod30": 1.0,
+        "prodmod30": 1.0,
+        "summod30": 1.0,
+        "diophantine": 0.975,
+        "gcdequals": 0.981,
+        "setalldiv": 1.0,
+        "setcoprime": 0.999,
+        "hiddenmod": 1.0,
+        "overall": 0.9944
+      },
+      "ood_2k_5k": {
+        "mod30": 1.0,
+        "prodmod30": 1.0,
+        "summod30": 1.0,
+        "diophantine": 0.978,
+        "gcdequals": 0.977,
+        "setalldiv": 0.997,
+        "setcoprime": 0.955,
+        "hiddenmod": 0.999,
+        "overall": 0.9882
+      },
+      "ood_5k_20k": {
+        "mod30": 1.0,
+        "prodmod30": 1.0,
+        "summod30": 0.998,
+        "diophantine": 0.984,
+        "gcdequals": 0.979,
+        "setalldiv": 0.995,
+        "setcoprime": 0.948,
+        "hiddenmod": 0.997,
+        "overall": 0.9876
+      },
+      "ood_20k_100k": {
+        "mod30": 1.0,
+        "prodmod30": 1.0,
+        "summod30": 0.979,
+        "diophantine": 0.987,
+        "gcdequals": 0.976,
+        "setalldiv": 0.995,
+        "setcoprime": 0.958,
+        "hiddenmod": 0.985,
+        "overall": 0.985
+      },
+      "ood_100k_500k": {
+        "mod30": 1.0,
+        "prodmod30": 0.999,
+        "summod30": 0.916,
+        "diophantine": 0.982,
+        "gcdequals": 0.979,
+        "setalldiv": 0.999,
+        "setcoprime": 0.962,
+        "hiddenmod": 0.991,
+        "overall": 0.9785
+      }
+    },
+    "learned_256": {
+      "params": 5806183,
+      "train_time": 613.6,
+      "embed_type": "learned",
+      "d_model": 256,
+      "nhead": 8,
+      "in_range": {
+        "mod30": 1.0,
+        "prodmod30": 1.0,
+        "summod30": 1.0,
+        "diophantine": 0.975,
+        "gcdequals": 0.985,
+        "setalldiv": 1.0,
+        "setcoprime": 0.999,
+        "hiddenmod": 0.966,
+        "overall": 0.9906
+      },
+      "ood_2k_5k": {
+        "mod30": 0.0,
+        "prodmod30": 0.118,
+        "summod30": 0.0,
+        "diophantine": 0.61,
+        "gcdequals": 0.73,
+        "setalldiv": 0.598,
+        "setcoprime": 0.603,
+        "hiddenmod": 0.532,
+        "overall": 0.3989
+      },
+      "ood_5k_20k": {
+        "mod30": 0.0,
+        "prodmod30": 0.131,
+        "summod30": 0.107,
+        "diophantine": 0.614,
+        "gcdequals": 0.769,
+        "setalldiv": 0.594,
+        "setcoprime": 0.643,
+        "hiddenmod": 0.389,
+        "overall": 0.4059
+      },
+      "ood_20k_100k": {
+        "mod30": 0.112,
+        "prodmod30": 0.133,
+        "summod30": 0.086,
+        "diophantine": 0.609,
+        "gcdequals": 0.764,
+        "setalldiv": 0.605,
+        "setcoprime": 0.618,
+        "hiddenmod": 0.425,
+        "overall": 0.419
+      },
+      "ood_100k_500k": {
+        "mod30": 0.104,
+        "prodmod30": 0.147,
+        "summod30": 0.109,
+        "diophantine": 0.608,
+        "gcdequals": 0.775,
+        "setalldiv": 0.599,
+        "setcoprime": 0.632,
+        "hiddenmod": 0.401,
+        "overall": 0.4219
+      }
+    }
+  }
+}
