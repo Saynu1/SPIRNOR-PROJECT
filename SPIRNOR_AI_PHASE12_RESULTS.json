@@ -1,0 +1,278 @@
+{
+  "phase": "Phase 12: SPIRNOR for Temporal/Periodic Data",
+  "config": {
+    "part_a": {
+      "d_model": 128,
+      "nhead": 4,
+      "num_layers": 6,
+      "epochs": 30,
+      "train_range": [
+        1,
+        17521
+      ],
+      "n_train_per_task": 50000,
+      "n_eval_per_task": 1000,
+      "n_tasks": 8,
+      "tasks": [
+        "hourofday",
+        "dayofweek",
+        "isweekend",
+        "timeslot",
+        "isbusinesshour",
+        "season",
+        "samedow",
+        "hourdiffmod12"
+      ],
+      "spirnor_constants": [
+        "2pi/24",
+        "2pi/168",
+        "2pi/720",
+        "2pi/2190",
+        "2pi/8766"
+      ],
+      "temporal_periods": [
+        24,
+        168,
+        720,
+        2190,
+        8766
+      ]
+    },
+    "part_b": {
+      "d_model": 256,
+      "nhead": 8,
+      "num_layers": 6,
+      "epochs": 30,
+      "train_range": [
+        1,
+        17521
+      ],
+      "n_train_per_task": 50000,
+      "n_eval_per_task": 1000
+    }
+  },
+  "task_families": {
+    "A_DirectTemporal": [
+      "hourofday",
+      "dayofweek"
+    ],
+    "B_Hierarchical": [
+      "isweekend",
+      "timeslot",
+      "isbusinesshour",
+      "season"
+    ],
+    "C_MultiTimestamp": [
+      "samedow",
+      "hourdiffmod12"
+    ]
+  },
+  "results_part_a": {
+    "spirnor_temporal": {
+      "params": 1335097,
+      "train_time": 352.7,
+      "embed_type": "spirnor",
+      "d_model": 128,
+      "nhead": 4,
+      "in_range": {
+        "hourofday": 1.0,
+        "dayofweek": 1.0,
+        "isweekend": 1.0,
+        "timeslot": 1.0,
+        "isbusinesshour": 1.0,
+        "season": 1.0,
+        "samedow": 1.0,
+        "hourdiffmod12": 1.0,
+        "overall": 1.0
+      },
+      "ood_2y_5y": {
+        "hourofday": 1.0,
+        "dayofweek": 1.0,
+        "isweekend": 1.0,
+        "timeslot": 1.0,
+        "isbusinesshour": 1.0,
+        "season": 0.975,
+        "samedow": 1.0,
+        "hourdiffmod12": 1.0,
+        "overall": 0.9969
+      },
+      "ood_5y_10y": {
+        "hourofday": 1.0,
+        "dayofweek": 1.0,
+        "isweekend": 1.0,
+        "timeslot": 1.0,
+        "isbusinesshour": 1.0,
+        "season": 0.983,
+        "samedow": 1.0,
+        "hourdiffmod12": 1.0,
+        "overall": 0.9979
+      },
+      "ood_10y_50y": {
+        "hourofday": 1.0,
+        "dayofweek": 1.0,
+        "isweekend": 1.0,
+        "timeslot": 1.0,
+        "isbusinesshour": 1.0,
+        "season": 0.944,
+        "samedow": 1.0,
+        "hourdiffmod12": 1.0,
+        "overall": 0.993
+      }
+    },
+    "learned": {
+      "params": 3573049,
+      "train_time": 335.1,
+      "embed_type": "learned",
+      "d_model": 128,
+      "nhead": 4,
+      "in_range": {
+        "hourofday": 0.957,
+        "dayofweek": 0.956,
+        "isweekend": 1.0,
+        "timeslot": 0.999,
+        "isbusinesshour": 0.998,
+        "season": 0.958,
+        "samedow": 0.714,
+        "hourdiffmod12": 0.094,
+        "overall": 0.8345
+      },
+      "ood_2y_5y": {
+        "hourofday": 0.009,
+        "dayofweek": 0.006,
+        "isweekend": 0.309,
+        "timeslot": 0.777,
+        "isbusinesshour": 0.683,
+        "season": 0.96,
+        "samedow": 0.562,
+        "hourdiffmod12": 0.094,
+        "overall": 0.425
+      },
+      "ood_5y_10y": {
+        "hourofday": 0.003,
+        "dayofweek": 0.063,
+        "isweekend": 0.573,
+        "timeslot": 0.458,
+        "isbusinesshour": 0.622,
+        "season": 0.952,
+        "samedow": 0.511,
+        "hourdiffmod12": 0.115,
+        "overall": 0.4121
+      },
+      "ood_10y_50y": {
+        "hourofday": 0.048,
+        "dayofweek": 0.166,
+        "isweekend": 0.519,
+        "timeslot": 0.17,
+        "isbusinesshour": 0.463,
+        "season": 0.956,
+        "samedow": 0.499,
+        "hourdiffmod12": 0.07,
+        "overall": 0.3614
+      }
+    }
+  },
+  "results_part_b": {
+    "spirnor_256": {
+      "params": 5291577,
+      "train_time": 699.0,
+      "embed_type": "spirnor",
+      "d_model": 256,
+      "nhead": 8,
+      "in_range": {
+        "hourofday": 1.0,
+        "dayofweek": 1.0,
+        "isweekend": 1.0,
+        "timeslot": 1.0,
+        "isbusinesshour": 1.0,
+        "season": 1.0,
+        "samedow": 1.0,
+        "hourdiffmod12": 1.0,
+        "overall": 1.0
+      },
+      "ood_2y_5y": {
+        "hourofday": 1.0,
+        "dayofweek": 1.0,
+        "isweekend": 1.0,
+        "timeslot": 1.0,
+        "isbusinesshour": 1.0,
+        "season": 0.973,
+        "samedow": 1.0,
+        "hourdiffmod12": 1.0,
+        "overall": 0.9966
+      },
+      "ood_5y_10y": {
+        "hourofday": 1.0,
+        "dayofweek": 1.0,
+        "isweekend": 1.0,
+        "timeslot": 1.0,
+        "isbusinesshour": 1.0,
+        "season": 0.973,
+        "samedow": 1.0,
+        "hourdiffmod12": 1.0,
+        "overall": 0.9966
+      },
+      "ood_10y_50y": {
+        "hourofday": 1.0,
+        "dayofweek": 1.0,
+        "isweekend": 1.0,
+        "timeslot": 1.0,
+        "isbusinesshour": 1.0,
+        "season": 0.95,
+        "samedow": 1.0,
+        "hourdiffmod12": 1.0,
+        "overall": 0.9938
+      }
+    },
+    "learned_256": {
+      "params": 9767481,
+      "train_time": 671.1,
+      "embed_type": "learned",
+      "d_model": 256,
+      "nhead": 8,
+      "in_range": {
+        "hourofday": 0.987,
+        "dayofweek": 0.971,
+        "isweekend": 1.0,
+        "timeslot": 0.997,
+        "isbusinesshour": 1.0,
+        "season": 0.958,
+        "samedow": 0.886,
+        "hourdiffmod12": 0.928,
+        "overall": 0.9659
+      },
+      "ood_2y_5y": {
+        "hourofday": 0.003,
+        "dayofweek": 0.007,
+        "isweekend": 0.309,
+        "timeslot": 0.778,
+        "isbusinesshour": 0.684,
+        "season": 0.951,
+        "samedow": 0.638,
+        "hourdiffmod12": 0.513,
+        "overall": 0.4854
+      },
+      "ood_5y_10y": {
+        "hourofday": 0.0,
+        "dayofweek": 0.057,
+        "isweekend": 0.574,
+        "timeslot": 0.461,
+        "isbusinesshour": 0.623,
+        "season": 0.957,
+        "samedow": 0.552,
+        "hourdiffmod12": 0.354,
+        "overall": 0.4472
+      },
+      "ood_10y_50y": {
+        "hourofday": 0.054,
+        "dayofweek": 0.162,
+        "isweekend": 0.52,
+        "timeslot": 0.17,
+        "isbusinesshour": 0.465,
+        "season": 0.959,
+        "samedow": 0.51,
+        "hourdiffmod12": 0.092,
+        "overall": 0.3665
+      }
+    }
+  }
+}
