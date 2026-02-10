@@ -1,0 +1,365 @@
+{
+  "phase": "Phase 13: Baseline Comparisons",
+  "config": {
+    "d_model": 128,
+    "nhead": 4,
+    "num_layers": 6,
+    "epochs": 30,
+    "train_range": [
+      1,
+      17521
+    ],
+    "n_train_per_task": 50000,
+    "n_eval_per_task": 1000,
+    "n_tasks": 8,
+    "tasks": [
+      "hourofday",
+      "dayofweek",
+      "isweekend",
+      "timeslot",
+      "isbusinesshour",
+      "season",
+      "samedow",
+      "hourdiffmod12"
+    ],
+    "spirnor_constants": [
+      "2pi/24",
+      "2pi/168",
+      "2pi/720",
+      "2pi/2190",
+      "2pi/8766"
+    ],
+    "temporal_periods": [
+      24,
+      168,
+      720,
+      2190,
+      8766
+    ],
+    "n_configs": 6,
+    "configs": [
+      "spirnor_temporal",
+      "learned",
+      "rff",
+      "sinusoidal",
+      "time2vec",
+      "learned_fourier"
+    ]
+  },
+  "baselines": {
+    "spirnor_temporal": "Period-matched fixed: {2pi/24, 2pi/168, 2pi/720, 2pi/2190, 2pi/8766}",
+    "learned": "nn.Embedding(17521, d_model) with mod-wrapping OOD",
+    "rff": "Random Fourier Features: 18 freqs ~ N(0, 0.01^2), Tancik 2020",
+    "sinusoidal": "Vaswani-style geometric freqs: 1/10000^(2i/d), 18 pairs",
+    "time2vec": "Time2Vec: 1 linear + 35 learned sin, Kazemi 2019",
+    "learned_fourier": "Learned Fourier: 18 learned sin/cos pairs"
+  },
+  "results": {
+    "spirnor_temporal": {
+      "params": 1335097,
+      "train_time": 455.3,
+      "embed_type": "spirnor",
+      "d_model": 128,
+      "nhead": 4,
+      "in_range": {
+        "hourofday": 1.0,
+        "dayofweek": 1.0,
+        "isweekend": 1.0,
+        "timeslot": 1.0,
+        "isbusinesshour": 1.0,
+        "season": 1.0,
+        "samedow": 1.0,
+        "hourdiffmod12": 1.0,
+        "overall": 1.0
+      },
+      "ood_2y_5y": {
+        "hourofday": 1.0,
+        "dayofweek": 1.0,
+        "isweekend": 1.0,
+        "timeslot": 1.0,
+        "isbusinesshour": 1.0,
+        "season": 0.966,
+        "samedow": 1.0,
+        "hourdiffmod12": 1.0,
+        "overall": 0.9958
+      },
+      "ood_5y_10y": {
+        "hourofday": 1.0,
+        "dayofweek": 1.0,
+        "isweekend": 1.0,
+        "timeslot": 1.0,
+        "isbusinesshour": 1.0,
+        "season": 0.981,
+        "samedow": 1.0,
+        "hourdiffmod12": 1.0,
+        "overall": 0.9976
+      },
+      "ood_10y_50y": {
+        "hourofday": 1.0,
+        "dayofweek": 1.0,
+        "isweekend": 1.0,
+        "timeslot": 1.0,
+        "isbusinesshour": 1.0,
+        "season": 0.942,
+        "samedow": 0.999,
+        "hourdiffmod12": 1.0,
+        "overall": 0.9926
+      }
+    },
+    "learned": {
+      "params": 3573049,
+      "train_time": 453.3,
+      "embed_type": "learned",
+      "d_model": 128,
+      "nhead": 4,
+      "in_range": {
+        "hourofday": 0.951,
+        "dayofweek": 0.961,
+        "isweekend": 1.0,
+        "timeslot": 1.0,
+        "isbusinesshour": 0.997,
+        "season": 0.954,
+        "samedow": 0.707,
+        "hourdiffmod12": 0.131,
+        "overall": 0.8376
+      },
+      "ood_2y_5y": {
+        "hourofday": 0.011,
+        "dayofweek": 0.003,
+        "isweekend": 0.292,
+        "timeslot": 0.765,
+        "isbusinesshour": 0.668,
+        "season": 0.957,
+        "samedow": 0.588,
+        "hourdiffmod12": 0.095,
+        "overall": 0.4224
+      },
+      "ood_5y_10y": {
+        "hourofday": 0.004,
+        "dayofweek": 0.056,
+        "isweekend": 0.575,
+        "timeslot": 0.472,
+        "isbusinesshour": 0.629,
+        "season": 0.955,
+        "samedow": 0.519,
+        "hourdiffmod12": 0.1,
+        "overall": 0.4138
+      },
+      "ood_10y_50y": {
+        "hourofday": 0.045,
+        "dayofweek": 0.168,
+        "isweekend": 0.508,
+        "timeslot": 0.194,
+        "isbusinesshour": 0.467,
+        "season": 0.953,
+        "samedow": 0.515,
+        "hourdiffmod12": 0.087,
+        "overall": 0.3671
+      }
+    },
+    "rff": {
+      "params": 1335225,
+      "train_time": 458.3,
+      "embed_type": "rff",
+      "d_model": 128,
+      "nhead": 4,
+      "in_range": {
+        "hourofday": 0.981,
+        "dayofweek": 0.996,
+        "isweekend": 0.999,
+        "timeslot": 0.998,
+        "isbusinesshour": 0.997,
+        "season": 1.0,
+        "samedow": 0.802,
+        "hourdiffmod12": 0.102,
+        "overall": 0.8594
+      },
+      "ood_2y_5y": {
+        "hourofday": 0.046,
+        "dayofweek": 0.141,
+        "isweekend": 0.519,
+        "timeslot": 0.287,
+        "isbusinesshour": 0.529,
+        "season": 0.415,
+        "samedow": 0.516,
+        "hourdiffmod12": 0.074,
+        "overall": 0.3159
+      },
+      "ood_5y_10y": {
+        "hourofday": 0.027,
+        "dayofweek": 0.194,
+        "isweekend": 0.506,
+        "timeslot": 0.16,
+        "isbusinesshour": 0.478,
+        "season": 0.19,
+        "samedow": 0.513,
+        "hourdiffmod12": 0.079,
+        "overall": 0.2684
+      },
+      "ood_10y_50y": {
+        "hourofday": 0.039,
+        "dayofweek": 0.133,
+        "isweekend": 0.502,
+        "timeslot": 0.243,
+        "isbusinesshour": 0.518,
+        "season": 0.249,
+        "samedow": 0.482,
+        "hourdiffmod12": 0.078,
+        "overall": 0.2805
+      }
+    },
+    "sinusoidal": {
+      "params": 1335225,
+      "train_time": 454.8,
+      "embed_type": "sinusoidal",
+      "d_model": 128,
+      "nhead": 4,
+      "in_range": {
+        "hourofday": 1.0,
+        "dayofweek": 1.0,
+        "isweekend": 1.0,
+        "timeslot": 1.0,
+        "isbusinesshour": 1.0,
+        "season": 1.0,
+        "samedow": 0.991,
+        "hourdiffmod12": 0.599,
+        "overall": 0.9487
+      },
+      "ood_2y_5y": {
+        "hourofday": 0.048,
+        "dayofweek": 0.093,
+        "isweekend": 0.497,
+        "timeslot": 0.232,
+        "isbusinesshour": 0.501,
+        "season": 0.257,
+        "samedow": 0.536,
+        "hourdiffmod12": 0.136,
+        "overall": 0.2875
+      },
+      "ood_5y_10y": {
+        "hourofday": 0.0,
+        "dayofweek": 0.06,
+        "isweekend": 0.422,
+        "timeslot": 0.0,
+        "isbusinesshour": 0.338,
+        "season": 0.01,
+        "samedow": 0.537,
+        "hourdiffmod12": 0.145,
+        "overall": 0.189
+      },
+      "ood_10y_50y": {
+        "hourofday": 0.033,
+        "dayofweek": 0.133,
+        "isweekend": 0.476,
+        "timeslot": 0.295,
+        "isbusinesshour": 0.487,
+        "season": 0.233,
+        "samedow": 0.504,
+        "hourdiffmod12": 0.082,
+        "overall": 0.2804
+      }
+    },
+    "time2vec": {
+      "params": 1335297,
+      "train_time": 451.1,
+      "embed_type": "time2vec",
+      "d_model": 128,
+      "nhead": 4,
+      "in_range": {
+        "hourofday": 0.042,
+        "dayofweek": 0.134,
+        "isweekend": 0.508,
+        "timeslot": 0.252,
+        "isbusinesshour": 0.49,
+        "season": 0.998,
+        "samedow": 0.503,
+        "hourdiffmod12": 0.093,
+        "overall": 0.3775
+      },
+      "ood_2y_5y": {
+        "hourofday": 0.059,
+        "dayofweek": 0.155,
+        "isweekend": 0.494,
+        "timeslot": 0.26,
+        "isbusinesshour": 0.498,
+        "season": 0.953,
+        "samedow": 0.51,
+        "hourdiffmod12": 0.079,
+        "overall": 0.376
+      },
+      "ood_5y_10y": {
+        "hourofday": 0.046,
+        "dayofweek": 0.138,
+        "isweekend": 0.49,
+        "timeslot": 0.253,
+        "isbusinesshour": 0.52,
+        "season": 0.647,
+        "samedow": 0.504,
+        "hourdiffmod12": 0.088,
+        "overall": 0.3357
+      },
+      "ood_10y_50y": {
+        "hourofday": 0.038,
+        "dayofweek": 0.145,
+        "isweekend": 0.508,
+        "timeslot": 0.252,
+        "isbusinesshour": 0.492,
+        "season": 0.218,
+        "samedow": 0.5,
+        "hourdiffmod12": 0.08,
+        "overall": 0.2791
+      }
+    },
+    "learned_fourier": {
+      "params": 1335261,
+      "train_time": 448.5,
+      "embed_type": "learned_fourier",
+      "d_model": 128,
+      "nhead": 4,
+      "in_range": {
+        "hourofday": 0.031,
+        "dayofweek": 0.181,
+        "isweekend": 0.587,
+        "timeslot": 0.235,
+        "isbusinesshour": 0.535,
+        "season": 0.999,
+        "samedow": 0.5,
+        "hourdiffmod12": 0.102,
+        "overall": 0.3962
+      },
+      "ood_2y_5y": {
+        "hourofday": 0.043,
+        "dayofweek": 0.141,
+        "isweekend": 0.513,
+        "timeslot": 0.267,
+        "isbusinesshour": 0.485,
+        "season": 0.986,
+        "samedow": 0.515,
+        "hourdiffmod12": 0.08,
+        "overall": 0.3787
+      },
+      "ood_5y_10y": {
+        "hourofday": 0.039,
+        "dayofweek": 0.136,
+        "isweekend": 0.497,
+        "timeslot": 0.258,
+        "isbusinesshour": 0.505,
+        "season": 0.941,
+        "samedow": 0.481,
+        "hourdiffmod12": 0.088,
+        "overall": 0.3681
+      },
+      "ood_10y_50y": {
+        "hourofday": 0.04,
+        "dayofweek": 0.147,
+        "isweekend": 0.491,
+        "timeslot": 0.249,
+        "isbusinesshour": 0.491,
+        "season": 0.643,
+        "samedow": 0.499,
+        "hourdiffmod12": 0.078,
+        "overall": 0.3297
+      }
+    }
+  }
+}
