@@ -1,0 +1,345 @@
+{
+  "phase": "Phase 16: Elliptic Curve Cryptography",
+  "config": {
+    "part_a": {
+      "d_model": 128,
+      "nhead": 4,
+      "num_layers": 6,
+      "epochs": 30,
+      "train_range": [
+        2,
+        2000
+      ],
+      "n_train_per_task": 50000,
+      "n_eval_per_task": 1000,
+      "n_tasks": 8,
+      "tasks": [
+        "isoncurve7",
+        "isoncurve11",
+        "pointaddx7",
+        "scalarmulx7",
+        "scalarmulidx11",
+        "ecdlp7",
+        "ecdlp11",
+        "ecdh7"
+      ],
+      "spirnor_constants": [
+        "2pi/2",
+        "2pi/3",
+        "2pi/5",
+        "2pi/7",
+        "2pi/11"
+      ],
+      "curves": {
+        "E7a": {
+          "eq": "y^2 = x^3 + 5 (mod 7)",
+          "order": 7,
+          "G": [
+            3,
+            2
+          ]
+        },
+        "E7b": {
+          "eq": "y^2 = x^3 + x (mod 7)",
+          "order": 8,
+          "G": [
+            3,
+            3
+          ]
+        },
+        "E11": {
+          "eq": "y^2 = x^3 + x + 6 (mod 11)",
+          "order": 13,
+          "G": [
+            2,
+            4
+          ]
+        }
+      }
+    },
+    "part_b": {
+      "d_model": 256,
+      "nhead": 8,
+      "num_layers": 6,
+      "epochs": 30,
+      "train_range": [
+        2,
+        2000
+      ],
+      "n_train_per_task": 50000,
+      "n_eval_per_task": 1000
+    }
+  },
+  "task_families": {
+    "1_Validation": [
+      "isoncurve7",
+      "isoncurve11"
+    ],
+    "2_PointArith": [
+      "pointaddx7"
+    ],
+    "3_ScalarMul": [
+      "scalarmulx7",
+      "scalarmulidx11"
+    ],
+    "4_ECDLP": [
+      "ecdlp7",
+      "ecdlp11"
+    ],
+    "5_ECDH": [
+      "ecdh7"
+    ]
+  },
+  "results_part_a": {
+    "spirnor_rational5": {
+      "params": 1335226,
+      "train_time": 335.1,
+      "embed_type": "spirnor",
+      "d_model": 128,
+      "nhead": 4,
+      "in_range": {
+        "isoncurve7": 1.0,
+        "isoncurve11": 1.0,
+        "pointaddx7": 1.0,
+        "scalarmulx7": 1.0,
+        "scalarmulidx11": 1.0,
+        "ecdlp7": 1.0,
+        "ecdlp11": 1.0,
+        "ecdh7": 1.0,
+        "overall": 1.0
+      },
+      "ood_2k_5k": {
+        "isoncurve7": 1.0,
+        "isoncurve11": 1.0,
+        "pointaddx7": 1.0,
+        "scalarmulx7": 1.0,
+        "scalarmulidx11": 0.035,
+        "ecdlp7": 1.0,
+        "ecdlp11": 1.0,
+        "ecdh7": 1.0,
+        "overall": 0.8794
+      },
+      "ood_5k_20k": {
+        "isoncurve7": 1.0,
+        "isoncurve11": 1.0,
+        "pointaddx7": 0.979,
+        "scalarmulx7": 1.0,
+        "scalarmulidx11": 0.071,
+        "ecdlp7": 1.0,
+        "ecdlp11": 1.0,
+        "ecdh7": 1.0,
+        "overall": 0.8812
+      },
+      "ood_20k_100k": {
+        "isoncurve7": 1.0,
+        "isoncurve11": 0.995,
+        "pointaddx7": 0.926,
+        "scalarmulx7": 1.0,
+        "scalarmulidx11": 0.071,
+        "ecdlp7": 1.0,
+        "ecdlp11": 0.999,
+        "ecdh7": 0.996,
+        "overall": 0.8734
+      },
+      "ood_100k_500k": {
+        "isoncurve7": 0.998,
+        "isoncurve11": 0.998,
+        "pointaddx7": 0.872,
+        "scalarmulx7": 1.0,
+        "scalarmulidx11": 0.076,
+        "ecdlp7": 0.996,
+        "ecdlp11": 0.995,
+        "ecdh7": 0.972,
+        "overall": 0.8634
+      }
+    },
+    "learned": {
+      "params": 1586618,
+      "train_time": 327.6,
+      "embed_type": "learned",
+      "d_model": 128,
+      "nhead": 4,
+      "in_range": {
+        "isoncurve7": 1.0,
+        "isoncurve11": 0.995,
+        "pointaddx7": 1.0,
+        "scalarmulx7": 1.0,
+        "scalarmulidx11": 1.0,
+        "ecdlp7": 1.0,
+        "ecdlp11": 1.0,
+        "ecdh7": 1.0,
+        "overall": 0.9994
+      },
+      "ood_2k_5k": {
+        "isoncurve7": 0.463,
+        "isoncurve11": 0.496,
+        "pointaddx7": 0.207,
+        "scalarmulx7": 0.137,
+        "scalarmulidx11": 0.0,
+        "ecdlp7": 0.128,
+        "ecdlp11": 0.084,
+        "ecdh7": 0.122,
+        "overall": 0.2046
+      },
+      "ood_5k_20k": {
+        "isoncurve7": 0.51,
+        "isoncurve11": 0.515,
+        "pointaddx7": 0.254,
+        "scalarmulx7": 0.237,
+        "scalarmulidx11": 0.001,
+        "ecdlp7": 0.17,
+        "ecdlp11": 0.025,
+        "ecdh7": 0.16,
+        "overall": 0.234
+      },
+      "ood_20k_100k": {
+        "isoncurve7": 0.526,
+        "isoncurve11": 0.525,
+        "pointaddx7": 0.213,
+        "scalarmulx7": 0.276,
+        "scalarmulidx11": 0.086,
+        "ecdlp7": 0.158,
+        "ecdlp11": 0.088,
+        "ecdh7": 0.167,
+        "overall": 0.2549
+      },
+      "ood_100k_500k": {
+        "isoncurve7": 0.495,
+        "isoncurve11": 0.515,
+        "pointaddx7": 0.22,
+        "scalarmulx7": 0.257,
+        "scalarmulidx11": 0.077,
+        "ecdlp7": 0.164,
+        "ecdlp11": 0.081,
+        "ecdh7": 0.174,
+        "overall": 0.2479
+      }
+    }
+  },
+  "results_part_b": {
+    "spirnor_256": {
+      "params": 5291834,
+      "train_time": 593.1,
+      "embed_type": "spirnor",
+      "d_model": 256,
+      "nhead": 8,
+      "in_range": {
+        "isoncurve7": 1.0,
+        "isoncurve11": 1.0,
+        "pointaddx7": 1.0,
+        "scalarmulx7": 1.0,
+        "scalarmulidx11": 1.0,
+        "ecdlp7": 1.0,
+        "ecdlp11": 1.0,
+        "ecdh7": 1.0,
+        "overall": 1.0
+      },
+      "ood_2k_5k": {
+        "isoncurve7": 1.0,
+        "isoncurve11": 1.0,
+        "pointaddx7": 1.0,
+        "scalarmulx7": 1.0,
+        "scalarmulidx11": 0.034,
+        "ecdlp7": 1.0,
+        "ecdlp11": 1.0,
+        "ecdh7": 1.0,
+        "overall": 0.8792
+      },
+      "ood_5k_20k": {
+        "isoncurve7": 1.0,
+        "isoncurve11": 0.999,
+        "pointaddx7": 1.0,
+        "scalarmulx7": 1.0,
+        "scalarmulidx11": 0.043,
+        "ecdlp7": 1.0,
+        "ecdlp11": 0.999,
+        "ecdh7": 0.999,
+        "overall": 0.88
+      },
+      "ood_20k_100k": {
+        "isoncurve7": 1.0,
+        "isoncurve11": 1.0,
+        "pointaddx7": 0.996,
+        "scalarmulx7": 1.0,
+        "scalarmulidx11": 0.064,
+        "ecdlp7": 1.0,
+        "ecdlp11": 0.997,
+        "ecdh7": 0.999,
+        "overall": 0.882
+      },
+      "ood_100k_500k": {
+        "isoncurve7": 1.0,
+        "isoncurve11": 0.996,
+        "pointaddx7": 0.984,
+        "scalarmulx7": 1.0,
+        "scalarmulidx11": 0.074,
+        "ecdlp7": 0.999,
+        "ecdlp11": 0.992,
+        "ecdh7": 0.994,
+        "overall": 0.8799
+      }
+    },
+    "learned_256": {
+      "params": 5794618,
+      "train_time": 548.8,
+      "embed_type": "learned",
+      "d_model": 256,
+      "nhead": 8,
+      "in_range": {
+        "isoncurve7": 1.0,
+        "isoncurve11": 0.998,
+        "pointaddx7": 1.0,
+        "scalarmulx7": 1.0,
+        "scalarmulidx11": 1.0,
+        "ecdlp7": 1.0,
+        "ecdlp11": 1.0,
+        "ecdh7": 1.0,
+        "overall": 0.9998
+      },
+      "ood_2k_5k": {
+        "isoncurve7": 0.463,
+        "isoncurve11": 0.499,
+        "pointaddx7": 0.212,
+        "scalarmulx7": 0.137,
+        "scalarmulidx11": 0.0,
+        "ecdlp7": 0.045,
+        "ecdlp11": 0.053,
+        "ecdh7": 0.123,
+        "overall": 0.1915
+      },
+      "ood_5k_20k": {
+        "isoncurve7": 0.509,
+        "isoncurve11": 0.514,
+        "pointaddx7": 0.234,
+        "scalarmulx7": 0.237,
+        "scalarmulidx11": 0.0,
+        "ecdlp7": 0.173,
+        "ecdlp11": 0.041,
+        "ecdh7": 0.16,
+        "overall": 0.2335
+      },
+      "ood_20k_100k": {
+        "isoncurve7": 0.526,
+        "isoncurve11": 0.525,
+        "pointaddx7": 0.222,
+        "scalarmulx7": 0.277,
+        "scalarmulidx11": 0.086,
+        "ecdlp7": 0.176,
+        "ecdlp11": 0.09,
+        "ecdh7": 0.167,
+        "overall": 0.2586
+      },
+      "ood_100k_500k": {
+        "isoncurve7": 0.495,
+        "isoncurve11": 0.514,
+        "pointaddx7": 0.238,
+        "scalarmulx7": 0.257,
+        "scalarmulidx11": 0.077,
+        "ecdlp7": 0.168,
+        "ecdlp11": 0.069,
+        "ecdh7": 0.174,
+        "overall": 0.249
+      }
+    }
+  }
+}

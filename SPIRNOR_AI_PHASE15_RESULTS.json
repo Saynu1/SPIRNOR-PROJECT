@@ -1,0 +1,345 @@
+{
+  "phase": "Phase 15: Cryptographic Modular Arithmetic",
+  "config": {
+    "part_a": {
+      "d_model": 128,
+      "nhead": 4,
+      "num_layers": 6,
+      "epochs": 30,
+      "train_range": [
+        2,
+        2000
+      ],
+      "n_train_per_task": 50000,
+      "n_eval_per_task": 1000,
+      "n_tasks": 8,
+      "tasks": [
+        "modpow7",
+        "modpow11",
+        "modpow30",
+        "rsa77",
+        "elgamal7",
+        "dh7",
+        "dlog11",
+        "tower7"
+      ],
+      "spirnor_constants": [
+        "2pi/2",
+        "2pi/3",
+        "2pi/5",
+        "2pi/7",
+        "2pi/11"
+      ],
+      "crypto_params": {
+        "rsa": {
+          "N": 77,
+          "e": 7,
+          "d": 43,
+          "p": 7,
+          "q": 11
+        },
+        "elgamal": {
+          "p": 7,
+          "g": 3
+        },
+        "dh": {
+          "p": 7,
+          "g": 3
+        },
+        "dlog": {
+          "p": 11,
+          "g": 2
+        },
+        "tower": {
+          "p": 7
+        }
+      }
+    },
+    "part_b": {
+      "d_model": 256,
+      "nhead": 8,
+      "num_layers": 6,
+      "epochs": 30,
+      "train_range": [
+        2,
+        2000
+      ],
+      "n_train_per_task": 50000,
+      "n_eval_per_task": 1000
+    }
+  },
+  "task_families": {
+    "1_ModExp": [
+      "modpow7",
+      "modpow11",
+      "modpow30"
+    ],
+    "2_RSA": [
+      "rsa77"
+    ],
+    "3_ElGamal": [
+      "elgamal7"
+    ],
+    "4_DH": [
+      "dh7"
+    ],
+    "5_DLog": [
+      "dlog11"
+    ],
+    "6_Tower": [
+      "tower7"
+    ]
+  },
+  "results_part_a": {
+    "spirnor_rational5": {
+      "params": 1347868,
+      "train_time": 262.9,
+      "embed_type": "spirnor",
+      "d_model": 128,
+      "nhead": 4,
+      "in_range": {
+        "modpow7": 1.0,
+        "modpow11": 1.0,
+        "modpow30": 0.796,
+        "rsa77": 1.0,
+        "elgamal7": 1.0,
+        "dh7": 1.0,
+        "dlog11": 1.0,
+        "tower7": 1.0,
+        "overall": 0.9745
+      },
+      "ood_2k_5k": {
+        "modpow7": 1.0,
+        "modpow11": 1.0,
+        "modpow30": 0.796,
+        "rsa77": 1.0,
+        "elgamal7": 1.0,
+        "dh7": 1.0,
+        "dlog11": 1.0,
+        "tower7": 1.0,
+        "overall": 0.9745
+      },
+      "ood_5k_20k": {
+        "modpow7": 1.0,
+        "modpow11": 1.0,
+        "modpow30": 0.806,
+        "rsa77": 1.0,
+        "elgamal7": 1.0,
+        "dh7": 0.981,
+        "dlog11": 1.0,
+        "tower7": 1.0,
+        "overall": 0.9734
+      },
+      "ood_20k_100k": {
+        "modpow7": 1.0,
+        "modpow11": 0.998,
+        "modpow30": 0.791,
+        "rsa77": 1.0,
+        "elgamal7": 0.995,
+        "dh7": 0.954,
+        "dlog11": 1.0,
+        "tower7": 0.999,
+        "overall": 0.9671
+      },
+      "ood_100k_500k": {
+        "modpow7": 0.999,
+        "modpow11": 0.996,
+        "modpow30": 0.809,
+        "rsa77": 0.999,
+        "elgamal7": 0.989,
+        "dh7": 0.936,
+        "dlog11": 1.0,
+        "tower7": 1.0,
+        "overall": 0.966
+      }
+    },
+    "learned": {
+      "params": 1599260,
+      "train_time": 250.1,
+      "embed_type": "learned",
+      "d_model": 128,
+      "nhead": 4,
+      "in_range": {
+        "modpow7": 1.0,
+        "modpow11": 0.869,
+        "modpow30": 0.896,
+        "rsa77": 1.0,
+        "elgamal7": 1.0,
+        "dh7": 1.0,
+        "dlog11": 1.0,
+        "tower7": 1.0,
+        "overall": 0.9706
+      },
+      "ood_2k_5k": {
+        "modpow7": 0.19,
+        "modpow11": 0.104,
+        "modpow30": 0.058,
+        "rsa77": 0.0,
+        "elgamal7": 0.091,
+        "dh7": 0.567,
+        "dlog11": 0.017,
+        "tower7": 0.214,
+        "overall": 0.1551
+      },
+      "ood_5k_20k": {
+        "modpow7": 0.267,
+        "modpow11": 0.105,
+        "modpow30": 0.068,
+        "rsa77": 0.0,
+        "elgamal7": 0.171,
+        "dh7": 0.589,
+        "dlog11": 0.005,
+        "tower7": 0.257,
+        "overall": 0.1827
+      },
+      "ood_20k_100k": {
+        "modpow7": 0.278,
+        "modpow11": 0.135,
+        "modpow30": 0.121,
+        "rsa77": 0.0,
+        "elgamal7": 0.141,
+        "dh7": 0.619,
+        "dlog11": 0.111,
+        "tower7": 0.291,
+        "overall": 0.212
+      },
+      "ood_100k_500k": {
+        "modpow7": 0.26,
+        "modpow11": 0.129,
+        "modpow30": 0.117,
+        "rsa77": 0.017,
+        "elgamal7": 0.136,
+        "dh7": 0.607,
+        "dlog11": 0.12,
+        "tower7": 0.266,
+        "overall": 0.2065
+      }
+    }
+  },
+  "results_part_b": {
+    "spirnor_256": {
+      "params": 5317020,
+      "train_time": 521.7,
+      "embed_type": "spirnor",
+      "d_model": 256,
+      "nhead": 8,
+      "in_range": {
+        "modpow7": 1.0,
+        "modpow11": 1.0,
+        "modpow30": 0.802,
+        "rsa77": 1.0,
+        "elgamal7": 1.0,
+        "dh7": 1.0,
+        "dlog11": 1.0,
+        "tower7": 1.0,
+        "overall": 0.9752
+      },
+      "ood_2k_5k": {
+        "modpow7": 1.0,
+        "modpow11": 1.0,
+        "modpow30": 0.784,
+        "rsa77": 1.0,
+        "elgamal7": 1.0,
+        "dh7": 1.0,
+        "dlog11": 1.0,
+        "tower7": 1.0,
+        "overall": 0.973
+      },
+      "ood_5k_20k": {
+        "modpow7": 0.994,
+        "modpow11": 1.0,
+        "modpow30": 0.788,
+        "rsa77": 1.0,
+        "elgamal7": 0.992,
+        "dh7": 0.986,
+        "dlog11": 1.0,
+        "tower7": 0.999,
+        "overall": 0.9699
+      },
+      "ood_20k_100k": {
+        "modpow7": 0.992,
+        "modpow11": 1.0,
+        "modpow30": 0.782,
+        "rsa77": 1.0,
+        "elgamal7": 0.981,
+        "dh7": 0.953,
+        "dlog11": 1.0,
+        "tower7": 0.991,
+        "overall": 0.9624
+      },
+      "ood_100k_500k": {
+        "modpow7": 0.979,
+        "modpow11": 0.998,
+        "modpow30": 0.8,
+        "rsa77": 1.0,
+        "elgamal7": 0.972,
+        "dh7": 0.934,
+        "dlog11": 1.0,
+        "tower7": 0.989,
+        "overall": 0.959
+      }
+    },
+    "learned_256": {
+      "params": 5819804,
+      "train_time": 496.1,
+      "embed_type": "learned",
+      "d_model": 256,
+      "nhead": 8,
+      "in_range": {
+        "modpow7": 1.0,
+        "modpow11": 1.0,
+        "modpow30": 1.0,
+        "rsa77": 1.0,
+        "elgamal7": 1.0,
+        "dh7": 1.0,
+        "dlog11": 1.0,
+        "tower7": 1.0,
+        "overall": 1.0
+      },
+      "ood_2k_5k": {
+        "modpow7": 0.19,
+        "modpow11": 0.109,
+        "modpow30": 0.058,
+        "rsa77": 0.0,
+        "elgamal7": 0.092,
+        "dh7": 0.567,
+        "dlog11": 0.016,
+        "tower7": 0.214,
+        "overall": 0.1557
+      },
+      "ood_5k_20k": {
+        "modpow7": 0.266,
+        "modpow11": 0.097,
+        "modpow30": 0.067,
+        "rsa77": 0.0,
+        "elgamal7": 0.171,
+        "dh7": 0.589,
+        "dlog11": 0.002,
+        "tower7": 0.257,
+        "overall": 0.1811
+      },
+      "ood_20k_100k": {
+        "modpow7": 0.278,
+        "modpow11": 0.135,
+        "modpow30": 0.126,
+        "rsa77": 0.0,
+        "elgamal7": 0.142,
+        "dh7": 0.619,
+        "dlog11": 0.109,
+        "tower7": 0.291,
+        "overall": 0.2125
+      },
+      "ood_100k_500k": {
+        "modpow7": 0.26,
+        "modpow11": 0.134,
+        "modpow30": 0.115,
+        "rsa77": 0.016,
+        "elgamal7": 0.135,
+        "dh7": 0.606,
+        "dlog11": 0.118,
+        "tower7": 0.266,
+        "overall": 0.2062
+      }
+    }
+  }
+}

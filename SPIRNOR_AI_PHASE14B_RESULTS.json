@@ -1,0 +1,357 @@
+{
+  "phase": "Phase 14B: Cross-Domain Tabular Validation",
+  "datasets": {
+    "seoul_bike": {
+      "name": "Seoul Bike Sharing",
+      "n_rows": 8760,
+      "configs": {
+        "spirnor": {
+          "params": 21124,
+          "random": {
+            "acc": 0.7548,
+            "f1": 0.7527
+          },
+          "hour_ood": {
+            "acc": 0.121,
+            "f1": 0.0937
+          },
+          "month_ood": {
+            "acc": 0.639,
+            "f1": 0.5746
+          },
+          "avg_ood": 0.38
+        },
+        "onehot": {
+          "params": 23556,
+          "random": {
+            "acc": 0.7453,
+            "f1": 0.744
+          },
+          "hour_ood": {
+            "acc": 0.2744,
+            "f1": 0.1961
+          },
+          "month_ood": {
+            "acc": 0.7045,
+            "f1": 0.6808
+          },
+          "avg_ood": 0.4894
+        },
+        "sincos": {
+          "params": 19844,
+          "random": {
+            "acc": 0.7525,
+            "f1": 0.7513
+          },
+          "hour_ood": {
+            "acc": 0.5845,
+            "f1": 0.4284
+          },
+          "month_ood": {
+            "acc": 0.6633,
+            "f1": 0.6053
+          },
+          "avg_ood": 0.6239
+        },
+        "learned": {
+          "params": 23620,
+          "random": {
+            "acc": 0.7415,
+            "f1": 0.7401
+          },
+          "hour_ood": {
+            "acc": 0.2154,
+            "f1": 0.1584
+          },
+          "month_ood": {
+            "acc": 0.6834,
+            "f1": 0.6415
+          },
+          "avg_ood": 0.4494
+        },
+        "linear": {
+          "params": 19460,
+          "random": {
+            "acc": 0.7446,
+            "f1": 0.7434
+          },
+          "hour_ood": {
+            "acc": 0.5855,
+            "f1": 0.4428
+          },
+          "month_ood": {
+            "acc": 0.6908,
+            "f1": 0.6427
+          },
+          "avg_ood": 0.6381
+        },
+        "time2vec": {
+          "params": 24828,
+          "random": {
+            "acc": 0.7477,
+            "f1": 0.7465
+          },
+          "hour_ood": {
+            "acc": 0.5246,
+            "f1": 0.4006
+          },
+          "month_ood": {
+            "acc": 0.6956,
+            "f1": 0.6564
+          },
+          "avg_ood": 0.6101
+        }
+      }
+    },
+    "metro_traffic": {
+      "name": "Metro Interstate Traffic",
+      "n_rows": 40575,
+      "configs": {
+        "spirnor": {
+          "params": 21892,
+          "random": {
+            "acc": 0.8793,
+            "f1": 0.879
+          },
+          "hour_ood": {
+            "acc": 0.1334,
+            "f1": 0.1181
+          },
+          "weekday_ood": {
+            "acc": 0.6085,
+            "f1": 0.6104
+          },
+          "month_ood": {
+            "acc": 0.7596,
+            "f1": 0.7619
+          },
+          "avg_ood": 0.5005
+        },
+        "onehot": {
+          "params": 24708,
+          "random": {
+            "acc": 0.8776,
+            "f1": 0.8773
+          },
+          "hour_ood": {
+            "acc": 0.2082,
+            "f1": 0.17
+          },
+          "weekday_ood": {
+            "acc": 0.6017,
+            "f1": 0.6005
+          },
+          "month_ood": {
+            "acc": 0.8602,
+            "f1": 0.8596
+          },
+          "avg_ood": 0.5567
+        },
+        "sincos": {
+          "params": 19972,
+          "random": {
+            "acc": 0.88,
+            "f1": 0.8799
+          },
+          "hour_ood": {
+            "acc": 0.5076,
+            "f1": 0.3834
+          },
+          "weekday_ood": {
+            "acc": 0.6566,
+            "f1": 0.6549
+          },
+          "month_ood": {
+            "acc": 0.8512,
+            "f1": 0.8509
+          },
+          "avg_ood": 0.6718
+        },
+        "learned": {
+          "params": 26036,
+          "random": {
+            "acc": 0.8746,
+            "f1": 0.8745
+          },
+          "hour_ood": {
+            "acc": 0.1661,
+            "f1": 0.1489
+          },
+          "weekday_ood": {
+            "acc": 0.6032,
+            "f1": 0.6022
+          },
+          "month_ood": {
+            "acc": 0.8493,
+            "f1": 0.8489
+          },
+          "avg_ood": 0.5395
+        },
+        "linear": {
+          "params": 19588,
+          "random": {
+            "acc": 0.8732,
+            "f1": 0.8733
+          },
+          "hour_ood": {
+            "acc": 0.0859,
+            "f1": 0.078
+          },
+          "weekday_ood": {
+            "acc": 0.5644,
+            "f1": 0.5672
+          },
+          "month_ood": {
+            "acc": 0.8353,
+            "f1": 0.8359
+          },
+          "avg_ood": 0.4952
+        },
+        "time2vec": {
+          "params": 25444,
+          "random": {
+            "acc": 0.8801,
+            "f1": 0.8802
+          },
+          "hour_ood": {
+            "acc": 0.2272,
+            "f1": 0.2428
+          },
+          "weekday_ood": {
+            "acc": 0.5426,
+            "f1": 0.5423
+          },
+          "month_ood": {
+            "acc": 0.8078,
+            "f1": 0.8056
+          },
+          "avg_ood": 0.5259
+        }
+      }
+    },
+    "beijing_pm25": {
+      "name": "Beijing PM2.5",
+      "n_rows": 41757,
+      "configs": {
+        "spirnor": {
+          "params": 20228,
+          "random": {
+            "acc": 0.6121,
+            "f1": 0.6102
+          },
+          "hour_ood": {
+            "acc": 0.5585,
+            "f1": 0.5584
+          },
+          "month_ood": {
+            "acc": 0.4356,
+            "f1": 0.3782
+          },
+          "avg_ood": 0.497
+        },
+        "onehot": {
+          "params": 23044,
+          "random": {
+            "acc": 0.5963,
+            "f1": 0.5941
+          },
+          "hour_ood": {
+            "acc": 0.5464,
+            "f1": 0.547
+          },
+          "month_ood": {
+            "acc": 0.4153,
+            "f1": 0.3742
+          },
+          "avg_ood": 0.4808
+        },
+        "sincos": {
+          "params": 18948,
+          "random": {
+            "acc": 0.6185,
+            "f1": 0.6165
+          },
+          "hour_ood": {
+            "acc": 0.5854,
+            "f1": 0.5867
+          },
+          "month_ood": {
+            "acc": 0.5187,
+            "f1": 0.4995
+          },
+          "avg_ood": 0.5521
+        },
+        "learned": {
+          "params": 23108,
+          "random": {
+            "acc": 0.6001,
+            "f1": 0.5976
+          },
+          "hour_ood": {
+            "acc": 0.5129,
+            "f1": 0.5181
+          },
+          "month_ood": {
+            "acc": 0.4121,
+            "f1": 0.3754
+          },
+          "avg_ood": 0.4625
+        },
+        "linear": {
+          "params": 18692,
+          "random": {
+            "acc": 0.6023,
+            "f1": 0.6
+          },
+          "hour_ood": {
+            "acc": 0.5298,
+            "f1": 0.5225
+          },
+          "month_ood": {
+            "acc": 0.3337,
+            "f1": 0.2127
+          },
+          "avg_ood": 0.4318
+        },
+        "time2vec": {
+          "params": 22596,
+          "random": {
+            "acc": 0.6124,
+            "f1": 0.6104
+          },
+          "hour_ood": {
+            "acc": 0.5384,
+            "f1": 0.5369
+          },
+          "month_ood": {
+            "acc": 0.3664,
+            "f1": 0.2625
+          },
+          "avg_ood": 0.4524
+        }
+      }
+    }
+  },
+  "cross_dataset_3": {
+    "rankings": {
+      "sincos": 1.33,
+      "onehot": 3.0,
+      "learned": 4.0,
+      "time2vec": 4.0,
+      "spirnor": 4.33,
+      "linear": 4.33
+    },
+    "friedman_p": 0.3204
+  },
+  "combined_4_datasets": {
+    "rankings": {
+      "sincos": 1.25,
+      "onehot": 3.0,
+      "time2vec": 3.5,
+      "learned": 4.0,
+      "linear": 4.5,
+      "spirnor": 4.75
+    },
+    "friedman_p": 0.0982
+  }
+}
