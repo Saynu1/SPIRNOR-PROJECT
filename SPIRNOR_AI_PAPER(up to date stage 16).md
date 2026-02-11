@@ -1222,3 +1222,4 @@ For multiplication, std_rope achieves the best OOD per-digit accuracy (13.7%), s
 ---
 
 *This paper presents results from the SPIRNOR AI experimental research program (Phases 1-14).*
+
