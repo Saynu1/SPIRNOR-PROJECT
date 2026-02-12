@@ -1,0 +1,923 @@
+{
+  "phase": "Phase 17B: Multi-Seed Statistical Validation",
+  "model": "EleutherAI/pythia-70m",
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    2024
+  ],
+  "config": {
+    "train_range": [
+      2,
+      2000
+    ],
+    "n_train_per_task": 8334,
+    "n_eval_per_task": 500,
+    "epochs": 10,
+    "batch_size": 64,
+    "lr": 2e-05,
+    "max_length": 48,
+    "tasks": [
+      "mod7",
+      "mod30",
+      "gcd_task",
+      "isprime",
+      "add",
+      "coprime"
+    ]
+  },
+  "per_seed_results": {
+    "baseline_ft": [
+      {
+        "in_range": {
+          "mod7": 0.462,
+          "mod30": 0.866,
+          "gcd_task": 0.806,
+          "isprime": 0.92,
+          "add": 0.0,
+          "coprime": 0.872,
+          "overall": 0.6543
+        },
+        "ood_2k_5k": {
+          "mod7": 0.148,
+          "mod30": 0.214,
+          "gcd_task": 0.738,
+          "isprime": 0.812,
+          "add": 0.0,
+          "coprime": 0.82,
+          "overall": 0.4553
+        },
+        "ood_5k_20k": {
+          "mod7": 0.156,
+          "mod30": 0.308,
+          "gcd_task": 0.742,
+          "isprime": 0.772,
+          "add": 0.0,
+          "coprime": 0.762,
+          "overall": 0.4567
+        },
+        "ood_20k_100k": {
+          "mod7": 0.156,
+          "mod30": 0.212,
+          "gcd_task": 0.696,
+          "isprime": 0.832,
+          "add": 0.0,
+          "coprime": 0.808,
+          "overall": 0.4507
+        },
+        "params": 70426624,
+        "train_time": 178.8,
+        "seed": 42
+      },
+      {
+        "in_range": {
+          "mod7": 0.584,
+          "mod30": 0.714,
+          "gcd_task": 0.81,
+          "isprime": 0.922,
+          "add": 0.004,
+          "coprime": 0.874,
+          "overall": 0.6513
+        },
+        "ood_2k_5k": {
+          "mod7": 0.096,
+          "mod30": 0.318,
+          "gcd_task": 0.738,
+          "isprime": 0.812,
+          "add": 0.0,
+          "coprime": 0.818,
+          "overall": 0.4637
+        },
+        "ood_5k_20k": {
+          "mod7": 0.156,
+          "mod30": 0.294,
+          "gcd_task": 0.764,
+          "isprime": 0.82,
+          "add": 0.0,
+          "coprime": 0.794,
+          "overall": 0.4713
+        },
+        "ood_20k_100k": {
+          "mod7": 0.158,
+          "mod30": 0.3,
+          "gcd_task": 0.702,
+          "isprime": 0.866,
+          "add": 0.0,
+          "coprime": 0.782,
+          "overall": 0.468
+        },
+        "params": 70426624,
+        "train_time": 177.6,
+        "seed": 123
+      },
+      {
+        "in_range": {
+          "mod7": 0.634,
+          "mod30": 0.73,
+          "gcd_task": 0.796,
+          "isprime": 0.936,
+          "add": 0.002,
+          "coprime": 0.882,
+          "overall": 0.6633
+        },
+        "ood_2k_5k": {
+          "mod7": 0.102,
+          "mod30": 0.338,
+          "gcd_task": 0.684,
+          "isprime": 0.816,
+          "add": 0.0,
+          "coprime": 0.736,
+          "overall": 0.446
+        },
+        "ood_5k_20k": {
+          "mod7": 0.128,
+          "mod30": 0.318,
+          "gcd_task": 0.686,
+          "isprime": 0.816,
+          "add": 0.0,
+          "coprime": 0.702,
+          "overall": 0.4417
+        },
+        "ood_20k_100k": {
+          "mod7": 0.146,
+          "mod30": 0.328,
+          "gcd_task": 0.64,
+          "isprime": 0.816,
+          "add": 0.0,
+          "coprime": 0.72,
+          "overall": 0.4417
+        },
+        "params": 70426624,
+        "train_time": 176.9,
+        "seed": 456
+      },
+      {
+        "in_range": {
+          "mod7": 0.592,
+          "mod30": 0.742,
+          "gcd_task": 0.812,
+          "isprime": 0.932,
+          "add": 0.0,
+          "coprime": 0.866,
+          "overall": 0.6573
+        },
+        "ood_2k_5k": {
+          "mod7": 0.124,
+          "mod30": 0.212,
+          "gcd_task": 0.686,
+          "isprime": 0.792,
+          "add": 0.0,
+          "coprime": 0.712,
+          "overall": 0.421
+        },
+        "ood_5k_20k": {
+          "mod7": 0.154,
+          "mod30": 0.284,
+          "gcd_task": 0.684,
+          "isprime": 0.764,
+          "add": 0.0,
+          "coprime": 0.73,
+          "overall": 0.436
+        },
+        "ood_20k_100k": {
+          "mod7": 0.12,
+          "mod30": 0.226,
+          "gcd_task": 0.65,
+          "isprime": 0.804,
+          "add": 0.0,
+          "coprime": 0.686,
+          "overall": 0.4143
+        },
+        "params": 70426624,
+        "train_time": 177.4,
+        "seed": 789
+      },
+      {
+        "in_range": {
+          "mod7": 0.528,
+          "mod30": 0.766,
+          "gcd_task": 0.816,
+          "isprime": 0.938,
+          "add": 0.002,
+          "coprime": 0.868,
+          "overall": 0.653
+        },
+        "ood_2k_5k": {
+          "mod7": 0.138,
+          "mod30": 0.266,
+          "gcd_task": 0.712,
+          "isprime": 0.83,
+          "add": 0.0,
+          "coprime": 0.758,
+          "overall": 0.4507
+        },
+        "ood_5k_20k": {
+          "mod7": 0.15,
+          "mod30": 0.282,
+          "gcd_task": 0.726,
+          "isprime": 0.808,
+          "add": 0.0,
+          "coprime": 0.758,
+          "overall": 0.454
+        },
+        "ood_20k_100k": {
+          "mod7": 0.156,
+          "mod30": 0.234,
+          "gcd_task": 0.668,
+          "isprime": 0.822,
+          "add": 0.0,
+          "coprime": 0.74,
+          "overall": 0.4367
+        },
+        "params": 70426624,
+        "train_time": 178.1,
+        "seed": 2024
+      }
+    ],
+    "spirnor_rope_ft": [
+      {
+        "in_range": {
+          "mod7": 0.18,
+          "mod30": 0.662,
+          "gcd_task": 0.804,
+          "isprime": 0.926,
+          "add": 0.0,
+          "coprime": 0.884,
+          "overall": 0.576
+        },
+        "ood_2k_5k": {
+          "mod7": 0.136,
+          "mod30": 0.316,
+          "gcd_task": 0.778,
+          "isprime": 0.84,
+          "add": 0.0,
+          "coprime": 0.832,
+          "overall": 0.4837
+        },
+        "ood_5k_20k": {
+          "mod7": 0.128,
+          "mod30": 0.332,
+          "gcd_task": 0.746,
+          "isprime": 0.826,
+          "add": 0.0,
+          "coprime": 0.794,
+          "overall": 0.471
+        },
+        "ood_20k_100k": {
+          "mod7": 0.156,
+          "mod30": 0.322,
+          "gcd_task": 0.71,
+          "isprime": 0.866,
+          "add": 0.0,
+          "coprime": 0.826,
+          "overall": 0.48
+        },
+        "params": 70426624,
+        "train_time": 177.5,
+        "seed": 42
+      },
+      {
+        "in_range": {
+          "mod7": 0.594,
+          "mod30": 0.672,
+          "gcd_task": 0.782,
+          "isprime": 0.926,
+          "add": 0.0,
+          "coprime": 0.816,
+          "overall": 0.6317
+        },
+        "ood_2k_5k": {
+          "mod7": 0.118,
+          "mod30": 0.308,
+          "gcd_task": 0.75,
+          "isprime": 0.842,
+          "add": 0.0,
+          "coprime": 0.77,
+          "overall": 0.4647
+        },
+        "ood_5k_20k": {
+          "mod7": 0.144,
+          "mod30": 0.288,
+          "gcd_task": 0.742,
+          "isprime": 0.834,
+          "add": 0.0,
+          "coprime": 0.744,
+          "overall": 0.4587
+        },
+        "ood_20k_100k": {
+          "mod7": 0.148,
+          "mod30": 0.318,
+          "gcd_task": 0.712,
+          "isprime": 0.87,
+          "add": 0.0,
+          "coprime": 0.75,
+          "overall": 0.4663
+        },
+        "params": 70426624,
+        "train_time": 177.5,
+        "seed": 123
+      },
+      {
+        "in_range": {
+          "mod7": 0.304,
+          "mod30": 0.694,
+          "gcd_task": 0.8,
+          "isprime": 0.918,
+          "add": 0.004,
+          "coprime": 0.866,
+          "overall": 0.5977
+        },
+        "ood_2k_5k": {
+          "mod7": 0.13,
+          "mod30": 0.22,
+          "gcd_task": 0.734,
+          "isprime": 0.856,
+          "add": 0.0,
+          "coprime": 0.828,
+          "overall": 0.4613
+        },
+        "ood_5k_20k": {
+          "mod7": 0.15,
+          "mod30": 0.258,
+          "gcd_task": 0.732,
+          "isprime": 0.816,
+          "add": 0.0,
+          "coprime": 0.786,
+          "overall": 0.457
+        },
+        "ood_20k_100k": {
+          "mod7": 0.134,
+          "mod30": 0.238,
+          "gcd_task": 0.678,
+          "isprime": 0.852,
+          "add": 0.0,
+          "coprime": 0.802,
+          "overall": 0.4507
+        },
+        "params": 70426624,
+        "train_time": 177.5,
+        "seed": 456
+      },
+      {
+        "in_range": {
+          "mod7": 0.518,
+          "mod30": 0.672,
+          "gcd_task": 0.804,
+          "isprime": 0.932,
+          "add": 0.002,
+          "coprime": 0.886,
+          "overall": 0.6357
+        },
+        "ood_2k_5k": {
+          "mod7": 0.108,
+          "mod30": 0.332,
+          "gcd_task": 0.758,
+          "isprime": 0.836,
+          "add": 0.0,
+          "coprime": 0.818,
+          "overall": 0.4753
+        },
+        "ood_5k_20k": {
+          "mod7": 0.142,
+          "mod30": 0.326,
+          "gcd_task": 0.754,
+          "isprime": 0.832,
+          "add": 0.0,
+          "coprime": 0.766,
+          "overall": 0.47
+        },
+        "ood_20k_100k": {
+          "mod7": 0.148,
+          "mod30": 0.284,
+          "gcd_task": 0.714,
+          "isprime": 0.844,
+          "add": 0.0,
+          "coprime": 0.786,
+          "overall": 0.4627
+        },
+        "params": 70426624,
+        "train_time": 177.8,
+        "seed": 789
+      },
+      {
+        "in_range": {
+          "mod7": 0.604,
+          "mod30": 0.764,
+          "gcd_task": 0.81,
+          "isprime": 0.936,
+          "add": 0.004,
+          "coprime": 0.896,
+          "overall": 0.669
+        },
+        "ood_2k_5k": {
+          "mod7": 0.11,
+          "mod30": 0.34,
+          "gcd_task": 0.782,
+          "isprime": 0.832,
+          "add": 0.0,
+          "coprime": 0.822,
+          "overall": 0.481
+        },
+        "ood_5k_20k": {
+          "mod7": 0.12,
+          "mod30": 0.328,
+          "gcd_task": 0.75,
+          "isprime": 0.842,
+          "add": 0.0,
+          "coprime": 0.758,
+          "overall": 0.4663
+        },
+        "ood_20k_100k": {
+          "mod7": 0.17,
+          "mod30": 0.32,
+          "gcd_task": 0.742,
+          "isprime": 0.856,
+          "add": 0.0,
+          "coprime": 0.83,
+          "overall": 0.4863
+        },
+        "params": 70426624,
+        "train_time": 177.7,
+        "seed": 2024
+      }
+    ],
+    "spirnor_value_ft": [
+      {
+        "in_range": {
+          "mod7": 1.0,
+          "mod30": 0.996,
+          "gcd_task": 0.866,
+          "isprime": 0.968,
+          "add": 0.004,
+          "coprime": 0.966,
+          "overall": 0.8
+        },
+        "ood_2k_5k": {
+          "mod7": 0.846,
+          "mod30": 0.84,
+          "gcd_task": 0.802,
+          "isprime": 0.87,
+          "add": 0.0,
+          "coprime": 0.862,
+          "overall": 0.7033
+        },
+        "ood_5k_20k": {
+          "mod7": 0.848,
+          "mod30": 0.898,
+          "gcd_task": 0.794,
+          "isprime": 0.858,
+          "add": 0.0,
+          "coprime": 0.872,
+          "overall": 0.7117
+        },
+        "ood_20k_100k": {
+          "mod7": 0.784,
+          "mod30": 0.794,
+          "gcd_task": 0.78,
+          "isprime": 0.9,
+          "add": 0.0,
+          "coprime": 0.882,
+          "overall": 0.69
+        },
+        "params": 70432256,
+        "train_time": 609.8,
+        "seed": 42
+      },
+      {
+        "in_range": {
+          "mod7": 1.0,
+          "mod30": 0.998,
+          "gcd_task": 0.868,
+          "isprime": 0.956,
+          "add": 0.004,
+          "coprime": 0.934,
+          "overall": 0.7933
+        },
+        "ood_2k_5k": {
+          "mod7": 0.92,
+          "mod30": 0.966,
+          "gcd_task": 0.818,
+          "isprime": 0.868,
+          "add": 0.0,
+          "coprime": 0.91,
+          "overall": 0.747
+        },
+        "ood_5k_20k": {
+          "mod7": 0.92,
+          "mod30": 0.968,
+          "gcd_task": 0.806,
+          "isprime": 0.864,
+          "add": 0.0,
+          "coprime": 0.874,
+          "overall": 0.7387
+        },
+        "ood_20k_100k": {
+          "mod7": 0.782,
+          "mod30": 0.956,
+          "gcd_task": 0.806,
+          "isprime": 0.89,
+          "add": 0.0,
+          "coprime": 0.896,
+          "overall": 0.7217
+        },
+        "params": 70432256,
+        "train_time": 614.1,
+        "seed": 123
+      },
+      {
+        "in_range": {
+          "mod7": 1.0,
+          "mod30": 1.0,
+          "gcd_task": 0.888,
+          "isprime": 0.96,
+          "add": 0.002,
+          "coprime": 0.962,
+          "overall": 0.802
+        },
+        "ood_2k_5k": {
+          "mod7": 0.868,
+          "mod30": 0.888,
+          "gcd_task": 0.834,
+          "isprime": 0.858,
+          "add": 0.0,
+          "coprime": 0.902,
+          "overall": 0.725
+        },
+        "ood_5k_20k": {
+          "mod7": 0.918,
+          "mod30": 0.94,
+          "gcd_task": 0.818,
+          "isprime": 0.85,
+          "add": 0.0,
+          "coprime": 0.914,
+          "overall": 0.74
+        },
+        "ood_20k_100k": {
+          "mod7": 0.84,
+          "mod30": 0.908,
+          "gcd_task": 0.81,
+          "isprime": 0.882,
+          "add": 0.0,
+          "coprime": 0.922,
+          "overall": 0.727
+        },
+        "params": 70432256,
+        "train_time": 613.6,
+        "seed": 456
+      },
+      {
+        "in_range": {
+          "mod7": 0.998,
+          "mod30": 0.998,
+          "gcd_task": 0.88,
+          "isprime": 0.968,
+          "add": 0.006,
+          "coprime": 0.956,
+          "overall": 0.801
+        },
+        "ood_2k_5k": {
+          "mod7": 0.916,
+          "mod30": 0.796,
+          "gcd_task": 0.83,
+          "isprime": 0.862,
+          "add": 0.0,
+          "coprime": 0.92,
+          "overall": 0.7207
+        },
+        "ood_5k_20k": {
+          "mod7": 0.916,
+          "mod30": 0.91,
+          "gcd_task": 0.842,
+          "isprime": 0.868,
+          "add": 0.0,
+          "coprime": 0.904,
+          "overall": 0.74
+        },
+        "ood_20k_100k": {
+          "mod7": 0.9,
+          "mod30": 0.844,
+          "gcd_task": 0.82,
+          "isprime": 0.898,
+          "add": 0.0,
+          "coprime": 0.914,
+          "overall": 0.7293
+        },
+        "params": 70432256,
+        "train_time": 612.1,
+        "seed": 789
+      },
+      {
+        "in_range": {
+          "mod7": 0.998,
+          "mod30": 1.0,
+          "gcd_task": 0.868,
+          "isprime": 0.968,
+          "add": 0.002,
+          "coprime": 0.948,
+          "overall": 0.7973
+        },
+        "ood_2k_5k": {
+          "mod7": 0.888,
+          "mod30": 0.826,
+          "gcd_task": 0.846,
+          "isprime": 0.872,
+          "add": 0.0,
+          "coprime": 0.934,
+          "overall": 0.7277
+        },
+        "ood_5k_20k": {
+          "mod7": 0.92,
+          "mod30": 0.876,
+          "gcd_task": 0.834,
+          "isprime": 0.862,
+          "add": 0.0,
+          "coprime": 0.882,
+          "overall": 0.729
+        },
+        "ood_20k_100k": {
+          "mod7": 0.824,
+          "mod30": 0.834,
+          "gcd_task": 0.782,
+          "isprime": 0.906,
+          "add": 0.0,
+          "coprime": 0.924,
+          "overall": 0.7117
+        },
+        "params": 70432256,
+        "train_time": 612.4,
+        "seed": 2024
+      }
+    ],
+    "spirnor_full_ft": [
+      {
+        "in_range": {
+          "mod7": 0.996,
+          "mod30": 0.998,
+          "gcd_task": 0.872,
+          "isprime": 0.964,
+          "add": 0.002,
+          "coprime": 0.968,
+          "overall": 0.8
+        },
+        "ood_2k_5k": {
+          "mod7": 0.77,
+          "mod30": 0.904,
+          "gcd_task": 0.828,
+          "isprime": 0.88,
+          "add": 0.0,
+          "coprime": 0.916,
+          "overall": 0.7163
+        },
+        "ood_5k_20k": {
+          "mod7": 0.88,
+          "mod30": 0.894,
+          "gcd_task": 0.81,
+          "isprime": 0.852,
+          "add": 0.0,
+          "coprime": 0.88,
+          "overall": 0.7193
+        },
+        "ood_20k_100k": {
+          "mod7": 0.766,
+          "mod30": 0.876,
+          "gcd_task": 0.788,
+          "isprime": 0.906,
+          "add": 0.0,
+          "coprime": 0.846,
+          "overall": 0.697
+        },
+        "params": 70432256,
+        "train_time": 614.2,
+        "seed": 42
+      },
+      {
+        "in_range": {
+          "mod7": 0.998,
+          "mod30": 1.0,
+          "gcd_task": 0.858,
+          "isprime": 0.964,
+          "add": 0.002,
+          "coprime": 0.932,
+          "overall": 0.7923
+        },
+        "ood_2k_5k": {
+          "mod7": 0.736,
+          "mod30": 0.874,
+          "gcd_task": 0.78,
+          "isprime": 0.87,
+          "add": 0.0,
+          "coprime": 0.86,
+          "overall": 0.6867
+        },
+        "ood_5k_20k": {
+          "mod7": 0.886,
+          "mod30": 0.898,
+          "gcd_task": 0.788,
+          "isprime": 0.858,
+          "add": 0.0,
+          "coprime": 0.868,
+          "overall": 0.7163
+        },
+        "ood_20k_100k": {
+          "mod7": 0.786,
+          "mod30": 0.826,
+          "gcd_task": 0.786,
+          "isprime": 0.9,
+          "add": 0.0,
+          "coprime": 0.884,
+          "overall": 0.697
+        },
+        "params": 70432256,
+        "train_time": 612.9,
+        "seed": 123
+      },
+      {
+        "in_range": {
+          "mod7": 0.996,
+          "mod30": 0.994,
+          "gcd_task": 0.848,
+          "isprime": 0.95,
+          "add": 0.0,
+          "coprime": 0.934,
+          "overall": 0.787
+        },
+        "ood_2k_5k": {
+          "mod7": 0.796,
+          "mod30": 0.862,
+          "gcd_task": 0.782,
+          "isprime": 0.864,
+          "add": 0.0,
+          "coprime": 0.87,
+          "overall": 0.6957
+        },
+        "ood_5k_20k": {
+          "mod7": 0.876,
+          "mod30": 0.876,
+          "gcd_task": 0.798,
+          "isprime": 0.862,
+          "add": 0.0,
+          "coprime": 0.842,
+          "overall": 0.709
+        },
+        "ood_20k_100k": {
+          "mod7": 0.746,
+          "mod30": 0.776,
+          "gcd_task": 0.738,
+          "isprime": 0.878,
+          "add": 0.0,
+          "coprime": 0.85,
+          "overall": 0.6647
+        },
+        "params": 70432256,
+        "train_time": 611.9,
+        "seed": 456
+      },
+      {
+        "in_range": {
+          "mod7": 0.996,
+          "mod30": 0.996,
+          "gcd_task": 0.874,
+          "isprime": 0.952,
+          "add": 0.0,
+          "coprime": 0.95,
+          "overall": 0.7947
+        },
+        "ood_2k_5k": {
+          "mod7": 0.95,
+          "mod30": 0.808,
+          "gcd_task": 0.806,
+          "isprime": 0.86,
+          "add": 0.0,
+          "coprime": 0.898,
+          "overall": 0.7203
+        },
+        "ood_5k_20k": {
+          "mod7": 0.918,
+          "mod30": 0.904,
+          "gcd_task": 0.812,
+          "isprime": 0.852,
+          "add": 0.0,
+          "coprime": 0.892,
+          "overall": 0.7297
+        },
+        "ood_20k_100k": {
+          "mod7": 0.886,
+          "mod30": 0.822,
+          "gcd_task": 0.788,
+          "isprime": 0.886,
+          "add": 0.0,
+          "coprime": 0.924,
+          "overall": 0.7177
+        },
+        "params": 70432256,
+        "train_time": 615.8,
+        "seed": 789
+      },
+      {
+        "in_range": {
+          "mod7": 0.994,
+          "mod30": 0.998,
+          "gcd_task": 0.85,
+          "isprime": 0.956,
+          "add": 0.0,
+          "coprime": 0.936,
+          "overall": 0.789
+        },
+        "ood_2k_5k": {
+          "mod7": 0.762,
+          "mod30": 0.734,
+          "gcd_task": 0.772,
+          "isprime": 0.88,
+          "add": 0.0,
+          "coprime": 0.852,
+          "overall": 0.6667
+        },
+        "ood_5k_20k": {
+          "mod7": 0.892,
+          "mod30": 0.816,
+          "gcd_task": 0.786,
+          "isprime": 0.854,
+          "add": 0.0,
+          "coprime": 0.848,
+          "overall": 0.6993
+        },
+        "ood_20k_100k": {
+          "mod7": 0.77,
+          "mod30": 0.668,
+          "gcd_task": 0.766,
+          "isprime": 0.874,
+          "add": 0.0,
+          "coprime": 0.874,
+          "overall": 0.6587
+        },
+        "params": 70432256,
+        "train_time": 611.2,
+        "seed": 2024
+      }
+    ]
+  },
+  "avg_ood_stats": {
+    "baseline_ft": {
+      "mean": 0.44718666666666673,
+      "std": 0.016078049218318322,
+      "ci_95": 0.019960334425949203,
+      "min": 0.4237666666666667,
+      "max": 0.4676666666666667,
+      "n": 5,
+      "values": [
+        0.45423333333333327,
+        0.4676666666666667,
+        0.4431333333333333,
+        0.4237666666666667,
+        0.4471333333333334
+      ]
+    },
+    "spirnor_rope_ft": {
+      "mean": 0.469,
+      "std": 0.009456244262684602,
+      "ci_95": 0.011739595726675496,
+      "min": 0.4563333333333333,
+      "max": 0.4782333333333333,
+      "n": 5,
+      "values": [
+        0.4782333333333333,
+        0.46323333333333333,
+        0.4563333333333333,
+        0.4693333333333333,
+        0.47786666666666666
+      ]
+    },
+    "spirnor_value_ft": {
+      "mean": 0.7241866666666665,
+      "std": 0.013413873415236895,
+      "ci_95": 0.01665285356947567,
+      "min": 0.7016666666666667,
+      "max": 0.7357999999999999,
+      "n": 5,
+      "values": [
+        0.7016666666666667,
+        0.7357999999999999,
+        0.7306666666666666,
+        0.73,
+        0.7228
+      ]
+    },
+    "spirnor_full_ft": {
+      "mean": 0.6996266666666667,
+      "std": 0.018443779439149655,
+      "ci_95": 0.022897305555230712,
+      "min": 0.6749,
+      "max": 0.7225666666666667,
+      "n": 5,
+      "values": [
+        0.7108666666666666,
+        0.7000000000000001,
+        0.6898,
+        0.7225666666666667,
+        0.6749
+      ]
+    }
+  }
+}

@@ -1,0 +1,266 @@
+{
+  "phase": "Phase 18: SPIRNOR in Pythia-410M",
+  "model": "EleutherAI/pythia-410m",
+  "config": {
+    "train_range": [
+      2,
+      2000
+    ],
+    "n_train_per_task": 8334,
+    "n_eval_per_task": 500,
+    "epochs": 10,
+    "batch_size": 32,
+    "lr": 1e-05,
+    "max_length": 48,
+    "tasks": [
+      "mod7",
+      "mod30",
+      "gcd_task",
+      "isprime",
+      "add",
+      "coprime"
+    ],
+    "spirnor_rope_primes": [
+      2,
+      3,
+      5,
+      7,
+      11,
+      13,
+      17,
+      19
+    ],
+    "spirnor_value_primes": [
+      2,
+      3,
+      5,
+      7,
+      11
+    ]
+  },
+  "eval_ranges": {
+    "in_range": [
+      2,
+      2000
+    ],
+    "ood_2k_5k": [
+      2001,
+      5000
+    ],
+    "ood_5k_20k": [
+      5001,
+      20000
+    ],
+    "ood_20k_100k": [
+      20001,
+      100000
+    ]
+  },
+  "results": {
+    "zero_shot": {
+      "in_range": {
+        "mod7": 0.04,
+        "mod30": 0.012,
+        "gcd_task": 0.598,
+        "isprime": 0.0,
+        "add": 0.0,
+        "coprime": 0.0,
+        "overall": 0.1083
+      },
+      "ood_2k_5k": {
+        "mod7": 0.052,
+        "mod30": 0.018,
+        "gcd_task": 0.556,
+        "isprime": 0.0,
+        "add": 0.0,
+        "coprime": 0.0,
+        "overall": 0.1043
+      },
+      "ood_5k_20k": {
+        "mod7": 0.076,
+        "mod30": 0.026,
+        "gcd_task": 0.52,
+        "isprime": 0.0,
+        "add": 0.0,
+        "coprime": 0.0,
+        "overall": 0.1037
+      },
+      "ood_20k_100k": {
+        "mod7": 0.068,
+        "mod30": 0.022,
+        "gcd_task": 0.59,
+        "isprime": 0.0,
+        "add": 0.0,
+        "coprime": 0.0,
+        "overall": 0.1133
+      },
+      "params": 405334016,
+      "train_time": 0.0,
+      "trainable_params": 405334016
+    },
+    "baseline_ft": {
+      "in_range": {
+        "mod7": 0.6,
+        "mod30": 0.846,
+        "gcd_task": 0.812,
+        "isprime": 0.946,
+        "add": 0.002,
+        "coprime": 0.898,
+        "overall": 0.684
+      },
+      "ood_2k_5k": {
+        "mod7": 0.136,
+        "mod30": 0.238,
+        "gcd_task": 0.766,
+        "isprime": 0.798,
+        "add": 0.0,
+        "coprime": 0.832,
+        "overall": 0.4617
+      },
+      "ood_5k_20k": {
+        "mod7": 0.152,
+        "mod30": 0.29,
+        "gcd_task": 0.73,
+        "isprime": 0.75,
+        "add": 0.0,
+        "coprime": 0.758,
+        "overall": 0.4467
+      },
+      "ood_20k_100k": {
+        "mod7": 0.15,
+        "mod30": 0.204,
+        "gcd_task": 0.694,
+        "isprime": 0.784,
+        "add": 0.0,
+        "coprime": 0.802,
+        "overall": 0.439
+      },
+      "params": 405334016,
+      "train_time": 1041.0,
+      "trainable_params": 405334016
+    },
+    "spirnor_rope_ft": {
+      "in_range": {
+        "mod7": 0.648,
+        "mod30": 0.898,
+        "gcd_task": 0.822,
+        "isprime": 0.946,
+        "add": 0.006,
+        "coprime": 0.886,
+        "overall": 0.701
+      },
+      "ood_2k_5k": {
+        "mod7": 0.106,
+        "mod30": 0.276,
+        "gcd_task": 0.71,
+        "isprime": 0.8,
+        "add": 0.0,
+        "coprime": 0.79,
+        "overall": 0.447
+      },
+      "ood_5k_20k": {
+        "mod7": 0.144,
+        "mod30": 0.334,
+        "gcd_task": 0.698,
+        "isprime": 0.812,
+        "add": 0.0,
+        "coprime": 0.762,
+        "overall": 0.4583
+      },
+      "ood_20k_100k": {
+        "mod7": 0.148,
+        "mod30": 0.306,
+        "gcd_task": 0.64,
+        "isprime": 0.834,
+        "add": 0.0,
+        "coprime": 0.792,
+        "overall": 0.4533
+      },
+      "params": 405334016,
+      "train_time": 1045.3,
+      "trainable_params": 405334016
+    },
+    "spirnor_value_ft": {
+      "in_range": {
+        "mod7": 0.99,
+        "mod30": 1.0,
+        "gcd_task": 0.89,
+        "isprime": 0.996,
+        "add": 0.03,
+        "coprime": 0.972,
+        "overall": 0.813
+      },
+      "ood_2k_5k": {
+        "mod7": 0.942,
+        "mod30": 0.89,
+        "gcd_task": 0.83,
+        "isprime": 0.894,
+        "add": 0.0,
+        "coprime": 0.93,
+        "overall": 0.7477
+      },
+      "ood_5k_20k": {
+        "mod7": 0.966,
+        "mod30": 0.922,
+        "gcd_task": 0.82,
+        "isprime": 0.858,
+        "add": 0.0,
+        "coprime": 0.928,
+        "overall": 0.749
+      },
+      "ood_20k_100k": {
+        "mod7": 0.894,
+        "mod30": 0.884,
+        "gcd_task": 0.822,
+        "isprime": 0.9,
+        "add": 0.0,
+        "coprime": 0.938,
+        "overall": 0.7397
+      },
+      "params": 405345280,
+      "train_time": 1499.2,
+      "trainable_params": 405345280
+    },
+    "spirnor_full_ft": {
+      "in_range": {
+        "mod7": 1.0,
+        "mod30": 0.998,
+        "gcd_task": 0.89,
+        "isprime": 0.986,
+        "add": 0.01,
+        "coprime": 0.968,
+        "overall": 0.8087
+      },
+      "ood_2k_5k": {
+        "mod7": 0.97,
+        "mod30": 0.968,
+        "gcd_task": 0.866,
+        "isprime": 0.878,
+        "add": 0.0,
+        "coprime": 0.938,
+        "overall": 0.77
+      },
+      "ood_5k_20k": {
+        "mod7": 0.956,
+        "mod30": 0.95,
+        "gcd_task": 0.85,
+        "isprime": 0.878,
+        "add": 0.0,
+        "coprime": 0.944,
+        "overall": 0.763
+      },
+      "ood_20k_100k": {
+        "mod7": 0.912,
+        "mod30": 0.934,
+        "gcd_task": 0.84,
+        "isprime": 0.89,
+        "add": 0.0,
+        "coprime": 0.95,
+        "overall": 0.7543
+      },
+      "params": 405345280,
+      "train_time": 1496.5,
+      "trainable_params": 405345280
+    }
+  }
+}
